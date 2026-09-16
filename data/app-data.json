@@ -1,0 +1,2333 @@
+{
+  "requests": [
+    {
+      "id": "req-101-d9dfcf",
+      "createdAt": "2026-09-16T05:15:45.000Z",
+      "prompt": "Classify this support message and return JSON.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 54,
+      "outputTokens": 129,
+      "latencyMs": 1677,
+      "status": "success",
+      "tokensPerSecond": 83,
+      "cacheHit": false,
+      "estimatedCost": 0.00013
+    },
+    {
+      "id": "req-102-1kwsyfj",
+      "createdAt": "2026-09-16T05:16:30.000Z",
+      "prompt": "Find the customer renewal policy and summarize the approval threshold.",
+      "priority": "balanced",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with balanced priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 61,
+      "outputTokens": 130,
+      "latencyMs": 2639,
+      "status": "throttled",
+      "tokensPerSecond": 51,
+      "cacheHit": false,
+      "estimatedCost": 0.00048
+    },
+    {
+      "id": "req-103-1yswert",
+      "createdAt": "2026-09-16T05:17:15.000Z",
+      "prompt": "Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 3,
+      "rationale": "Complexity 3/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 67,
+      "outputTokens": 215,
+      "latencyMs": 4374,
+      "status": "success",
+      "tokensPerSecond": 52,
+      "cacheHit": false,
+      "estimatedCost": 0.00071
+    },
+    {
+      "id": "req-104-1bzu4ir",
+      "createdAt": "2026-09-16T05:18:00.000Z",
+      "prompt": "Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 64,
+      "outputTokens": 132,
+      "latencyMs": 1710,
+      "status": "success",
+      "tokensPerSecond": 88,
+      "cacheHit": true,
+      "estimatedCost": 0.0001
+    },
+    {
+      "id": "req-105-11df9zi",
+      "createdAt": "2026-09-16T05:18:45.000Z",
+      "prompt": "Draft a concise follow-up email using the meeting notes.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 57,
+      "outputTokens": 133,
+      "latencyMs": 1721,
+      "status": "success",
+      "tokensPerSecond": 90,
+      "cacheHit": false,
+      "estimatedCost": 0.00013
+    },
+    {
+      "id": "req-106-1dghhdm",
+      "createdAt": "2026-09-16T05:19:30.000Z",
+      "prompt": "Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+      "priority": "balanced",
+      "model": "gpt-5-mini",
+      "complexity": 2,
+      "rationale": "Complexity 2/5 with balanced priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 65,
+      "outputTokens": 176,
+      "latencyMs": 3570,
+      "status": "success",
+      "tokensPerSecond": 55,
+      "cacheHit": false,
+      "estimatedCost": 0.0006
+    },
+    {
+      "id": "req-107-r4f6td",
+      "createdAt": "2026-09-16T05:20:15.000Z",
+      "prompt": "Extract the invoice number, amount, and due date.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 55,
+      "outputTokens": 135,
+      "latencyMs": 2730,
+      "status": "success",
+      "tokensPerSecond": 56,
+      "cacheHit": false,
+      "estimatedCost": 0.00048
+    },
+    {
+      "id": "req-108-qqclyu",
+      "createdAt": "2026-09-16T05:21:00.000Z",
+      "prompt": "Reason about the safety and compliance risks of this proposed workflow.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 2,
+      "rationale": "Complexity 2/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 61,
+      "outputTokens": 178,
+      "latencyMs": 2305,
+      "status": "success",
+      "tokensPerSecond": 79,
+      "cacheHit": true,
+      "estimatedCost": 0.00012
+    },
+    {
+      "id": "req-109-ak7fp1",
+      "createdAt": "2026-09-16T05:21:45.000Z",
+      "prompt": "Search policy documents for the default context budget.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 57,
+      "outputTokens": 137,
+      "latencyMs": 1764,
+      "status": "success",
+      "tokensPerSecond": 81,
+      "cacheHit": false,
+      "estimatedCost": 0.00014
+    },
+    {
+      "id": "req-110-hkueui",
+      "createdAt": "2026-09-16T05:22:30.000Z",
+      "prompt": "Create a chart-ready JSON summary of weekly request volume.",
+      "priority": "balanced",
+      "model": "gpt-4.1-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with balanced priority. gpt-4.1-mini balances relative cost 2/5, latency 2/5, quality 3/5, and capacity 5/5.",
+      "inputTokens": 58,
+      "outputTokens": 138,
+      "latencyMs": 2784,
+      "status": "success",
+      "tokensPerSecond": 50,
+      "cacheHit": false,
+      "estimatedCost": 0.00035
+    },
+    {
+      "id": "req-111-kxcw00",
+      "createdAt": "2026-09-16T05:23:15.000Z",
+      "prompt": "Recommend the best model for a low-latency classification task.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 59,
+      "outputTokens": 102,
+      "latencyMs": 2130,
+      "status": "success",
+      "tokensPerSecond": 51,
+      "cacheHit": false,
+      "estimatedCost": 0.0004
+    },
+    {
+      "id": "req-112-1u7kv1e",
+      "createdAt": "2026-09-16T05:24:00.000Z",
+      "prompt": "Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 2,
+      "rationale": "Complexity 2/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 64,
+      "outputTokens": 145,
+      "latencyMs": 1946,
+      "status": "success",
+      "tokensPerSecond": 86,
+      "cacheHit": true,
+      "estimatedCost": 0.00011
+    },
+    {
+      "id": "req-113-d9dfcf",
+      "createdAt": "2026-09-16T05:24:45.000Z",
+      "prompt": "Classify this support message and return JSON.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 54,
+      "outputTokens": 104,
+      "latencyMs": 1405,
+      "status": "success",
+      "tokensPerSecond": 88,
+      "cacheHit": false,
+      "estimatedCost": 0.00011
+    },
+    {
+      "id": "req-114-1kwsyfj",
+      "createdAt": "2026-09-16T05:25:30.000Z",
+      "prompt": "Find the customer renewal policy and summarize the approval threshold.",
+      "priority": "balanced",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with balanced priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 61,
+      "outputTokens": 105,
+      "latencyMs": 2184,
+      "status": "success",
+      "tokensPerSecond": 54,
+      "cacheHit": false,
+      "estimatedCost": 0.00042
+    },
+    {
+      "id": "req-115-1yswert",
+      "createdAt": "2026-09-16T05:26:15.000Z",
+      "prompt": "Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 3,
+      "rationale": "Complexity 3/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 67,
+      "outputTokens": 190,
+      "latencyMs": 3920,
+      "status": "success",
+      "tokensPerSecond": 55,
+      "cacheHit": false,
+      "estimatedCost": 0.00064
+    },
+    {
+      "id": "req-116-1bzu4ir",
+      "createdAt": "2026-09-16T05:27:00.000Z",
+      "prompt": "Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 64,
+      "outputTokens": 107,
+      "latencyMs": 1438,
+      "status": "error",
+      "tokensPerSecond": 94,
+      "cacheHit": true,
+      "estimatedCost": 0.00009
+    },
+    {
+      "id": "req-117-11df9zi",
+      "createdAt": "2026-09-16T05:27:45.000Z",
+      "prompt": "Draft a concise follow-up email using the meeting notes.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 57,
+      "outputTokens": 108,
+      "latencyMs": 1449,
+      "status": "success",
+      "tokensPerSecond": 79,
+      "cacheHit": false,
+      "estimatedCost": 0.00012
+    },
+    {
+      "id": "req-118-1dghhdm",
+      "createdAt": "2026-09-16T05:28:30.000Z",
+      "prompt": "Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+      "priority": "balanced",
+      "model": "gpt-5-mini",
+      "complexity": 2,
+      "rationale": "Complexity 2/5 with balanced priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 65,
+      "outputTokens": 151,
+      "latencyMs": 3115,
+      "status": "success",
+      "tokensPerSecond": 48,
+      "cacheHit": false,
+      "estimatedCost": 0.00054
+    },
+    {
+      "id": "req-119-r4f6td",
+      "createdAt": "2026-09-16T05:29:15.000Z",
+      "prompt": "Extract the invoice number, amount, and due date.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 55,
+      "outputTokens": 110,
+      "latencyMs": 2275,
+      "status": "throttled",
+      "tokensPerSecond": 50,
+      "cacheHit": false,
+      "estimatedCost": 0.00041
+    },
+    {
+      "id": "req-120-qqclyu",
+      "createdAt": "2026-09-16T05:30:00.000Z",
+      "prompt": "Reason about the safety and compliance risks of this proposed workflow.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 2,
+      "rationale": "Complexity 2/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 61,
+      "outputTokens": 153,
+      "latencyMs": 2033,
+      "status": "success",
+      "tokensPerSecond": 85,
+      "cacheHit": true,
+      "estimatedCost": 0.00011
+    },
+    {
+      "id": "req-121-ak7fp1",
+      "createdAt": "2026-09-16T05:30:45.000Z",
+      "prompt": "Search policy documents for the default context budget.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 57,
+      "outputTokens": 112,
+      "latencyMs": 1492,
+      "status": "success",
+      "tokensPerSecond": 86,
+      "cacheHit": false,
+      "estimatedCost": 0.00012
+    },
+    {
+      "id": "req-122-hkueui",
+      "createdAt": "2026-09-16T05:31:30.000Z",
+      "prompt": "Create a chart-ready JSON summary of weekly request volume.",
+      "priority": "balanced",
+      "model": "gpt-4.1-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with balanced priority. gpt-4.1-mini balances relative cost 2/5, latency 2/5, quality 3/5, and capacity 5/5.",
+      "inputTokens": 58,
+      "outputTokens": 113,
+      "latencyMs": 2330,
+      "status": "success",
+      "tokensPerSecond": 53,
+      "cacheHit": false,
+      "estimatedCost": 0.00031
+    },
+    {
+      "id": "req-123-kxcw00",
+      "createdAt": "2026-09-16T05:32:15.000Z",
+      "prompt": "Recommend the best model for a low-latency classification task.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 59,
+      "outputTokens": 114,
+      "latencyMs": 2348,
+      "status": "success",
+      "tokensPerSecond": 54,
+      "cacheHit": false,
+      "estimatedCost": 0.00043
+    },
+    {
+      "id": "req-124-1u7kv1e",
+      "createdAt": "2026-09-16T05:33:00.000Z",
+      "prompt": "Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 2,
+      "rationale": "Complexity 2/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 64,
+      "outputTokens": 157,
+      "latencyMs": 2077,
+      "status": "success",
+      "tokensPerSecond": 92,
+      "cacheHit": true,
+      "estimatedCost": 0.00011
+    },
+    {
+      "id": "req-125-d9dfcf",
+      "createdAt": "2026-09-16T05:33:45.000Z",
+      "prompt": "Classify this support message and return JSON.",
+      "priority": "cost",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with cost priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 54,
+      "outputTokens": 116,
+      "latencyMs": 1536,
+      "status": "success",
+      "tokensPerSecond": 94,
+      "cacheHit": false,
+      "estimatedCost": 0.00012
+    },
+    {
+      "id": "req-126-1kwsyfj",
+      "createdAt": "2026-09-16T05:34:30.000Z",
+      "prompt": "Find the customer renewal policy and summarize the approval threshold.",
+      "priority": "balanced",
+      "model": "gpt-5-mini",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with balanced priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 61,
+      "outputTokens": 117,
+      "latencyMs": 2402,
+      "status": "success",
+      "tokensPerSecond": 47,
+      "cacheHit": false,
+      "estimatedCost": 0.00045
+    },
+    {
+      "id": "req-127-1yswert",
+      "createdAt": "2026-09-16T05:35:15.000Z",
+      "prompt": "Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+      "priority": "quality",
+      "model": "gpt-5-mini",
+      "complexity": 3,
+      "rationale": "Complexity 3/5 with quality priority. gpt-5-mini balances relative cost 2/5, latency 2/5, quality 4/5, and capacity 4/5.",
+      "inputTokens": 67,
+      "outputTokens": 202,
+      "latencyMs": 4138,
+      "status": "success",
+      "tokensPerSecond": 48,
+      "cacheHit": false,
+      "estimatedCost": 0.00067
+    },
+    {
+      "id": "req-128-1bzu4ir",
+      "createdAt": "2026-09-16T05:36:00.000Z",
+      "prompt": "Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+      "priority": "latency",
+      "model": "gpt-5-nano",
+      "complexity": 1,
+      "rationale": "Complexity 1/5 with latency priority. gpt-5-nano balances relative cost 1/5, latency 1/5, quality 2/5, and capacity 3/5.",
+      "inputTokens": 64,
+      "outputTokens": 119,
+      "latencyMs": 1568,
+      "status": "success",
+      "tokensPerSecond": 83,
+      "cacheHit": true,
+      "estimatedCost": 0.00009
+    }
+  ],
+  "traces": [
+    {
+      "id": "trace-req-101-d9dfcf",
+      "requestId": "req-101-d9dfcf",
+      "createdAt": "2026-09-16T05:15:45.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-101-d9dfcf-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:15:45.000Z",
+          "durationMs": 1677,
+          "input": "Input for invoke_agent: Classify this support message and return JSON.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 10,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-policy-retrieval",
+          "parentId": "req-101-d9dfcf-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:15:45.050Z",
+          "durationMs": 134,
+          "input": "Classify this support message and return JSON.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-customer-retrieval",
+          "parentId": "req-101-d9dfcf-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:15:45.218Z",
+          "durationMs": 151,
+          "input": "Classify this support message and return JSON.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-planner",
+          "parentId": "req-101-d9dfcf-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:15:45.402Z",
+          "durationMs": 402,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Classify this support message and return JSON.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 54,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-toolbox",
+          "parentId": "req-101-d9dfcf-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:15:45.486Z",
+          "durationMs": 134,
+          "input": "Input for mcp_tool_call: Classify this support message and return JSON.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-tool",
+          "parentId": "req-101-d9dfcf-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:15:45.654Z",
+          "durationMs": 201,
+          "input": "Input for mcp_tool_call: Classify this support message and return JSON.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-result-retrieval",
+          "parentId": "req-101-d9dfcf-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:15:45.889Z",
+          "durationMs": 117,
+          "input": "Classify this support message and return JSON.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-model",
+          "parentId": "req-101-d9dfcf-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:15:46.057Z",
+          "durationMs": 419,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Classify this support message and return JSON.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 54,
+          "outputTokens": 15,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-101-d9dfcf-response",
+          "parentId": "req-101-d9dfcf-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:15:46.509Z",
+          "durationMs": 134,
+          "model": "gpt-5-nano",
+          "input": "Input for response_generation: Classify this support message and return JSON.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 10,
+          "outputTokens": 129,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-102-1kwsyfj",
+      "requestId": "req-102-1kwsyfj",
+      "createdAt": "2026-09-16T05:16:30.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-102-1kwsyfj-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:16:30.000Z",
+          "durationMs": 2639,
+          "input": "Input for invoke_agent: Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 11,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-policy-retrieval",
+          "parentId": "req-102-1kwsyfj-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:16:30.079Z",
+          "durationMs": 211,
+          "input": "Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-customer-retrieval",
+          "parentId": "req-102-1kwsyfj-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:16:30.343Z",
+          "durationMs": 238,
+          "input": "Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-planner",
+          "parentId": "req-102-1kwsyfj-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:16:30.633Z",
+          "durationMs": 633,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 61,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-toolbox",
+          "parentId": "req-102-1kwsyfj-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:16:30.765Z",
+          "durationMs": 211,
+          "input": "Input for mcp_tool_call: Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 11,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-tool",
+          "parentId": "req-102-1kwsyfj-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:16:31.029Z",
+          "durationMs": 317,
+          "input": "Input for mcp_tool_call: Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 11,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-result-retrieval",
+          "parentId": "req-102-1kwsyfj-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:16:31.399Z",
+          "durationMs": 185,
+          "input": "Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-model",
+          "parentId": "req-102-1kwsyfj-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:16:31.663Z",
+          "durationMs": 660,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 61,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        },
+        {
+          "id": "req-102-1kwsyfj-response",
+          "parentId": "req-102-1kwsyfj-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:16:32.375Z",
+          "durationMs": 211,
+          "model": "gpt-5-mini",
+          "input": "Input for response_generation: Find the customer renewal policy and summarize the approval threshold.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 11,
+          "outputTokens": 130,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "throttled"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-103-1yswert",
+      "requestId": "req-103-1yswert",
+      "createdAt": "2026-09-16T05:17:15.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-103-1yswert-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:17:15.000Z",
+          "durationMs": 4374,
+          "input": "Input for invoke_agent: Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 12,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-policy-retrieval",
+          "parentId": "req-103-1yswert-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:17:15.131Z",
+          "durationMs": 350,
+          "input": "Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-customer-retrieval",
+          "parentId": "req-103-1yswert-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:17:15.569Z",
+          "durationMs": 394,
+          "input": "Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-planner",
+          "parentId": "req-103-1yswert-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:17:16.050Z",
+          "durationMs": 1050,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 67,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-toolbox",
+          "parentId": "req-103-1yswert-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:17:16.268Z",
+          "durationMs": 350,
+          "input": "Input for mcp_tool_call: Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-tool",
+          "parentId": "req-103-1yswert-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:17:16.706Z",
+          "durationMs": 525,
+          "input": "Input for mcp_tool_call: Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-result-retrieval",
+          "parentId": "req-103-1yswert-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:17:17.318Z",
+          "durationMs": 306,
+          "input": "Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-model",
+          "parentId": "req-103-1yswert-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:17:17.756Z",
+          "durationMs": 1094,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 67,
+          "outputTokens": 26,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-103-1yswert-response",
+          "parentId": "req-103-1yswert-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:17:18.937Z",
+          "durationMs": 350,
+          "model": "gpt-5-mini",
+          "input": "Input for response_generation: Compare three architecture options for a multi-region agent platform with detailed trade-offs.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 12,
+          "outputTokens": 215,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-104-1bzu4ir",
+      "requestId": "req-104-1bzu4ir",
+      "createdAt": "2026-09-16T05:18:00.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-104-1bzu4ir-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:18:00.000Z",
+          "durationMs": 1710,
+          "input": "Input for invoke_agent: Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 12,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-policy-retrieval",
+          "parentId": "req-104-1bzu4ir-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:18:00.051Z",
+          "durationMs": 137,
+          "input": "Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-customer-retrieval",
+          "parentId": "req-104-1bzu4ir-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:18:00.222Z",
+          "durationMs": 154,
+          "input": "Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-planner",
+          "parentId": "req-104-1bzu4ir-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:18:00.410Z",
+          "durationMs": 410,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 64,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-toolbox",
+          "parentId": "req-104-1bzu4ir-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:18:00.496Z",
+          "durationMs": 137,
+          "input": "Input for mcp_tool_call: Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-tool",
+          "parentId": "req-104-1bzu4ir-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:18:00.667Z",
+          "durationMs": 205,
+          "input": "Input for mcp_tool_call: Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-result-retrieval",
+          "parentId": "req-104-1bzu4ir-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:18:00.906Z",
+          "durationMs": 120,
+          "input": "Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-model",
+          "parentId": "req-104-1bzu4ir-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:18:01.077Z",
+          "durationMs": 428,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 64,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-104-1bzu4ir-response",
+          "parentId": "req-104-1bzu4ir-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:18:01.539Z",
+          "durationMs": 137,
+          "model": "gpt-5-nano",
+          "input": "Input for response_generation: Use the CRM tools to find the Contoso opportunity and suggest the next milestone.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 12,
+          "outputTokens": 132,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-105-11df9zi",
+      "requestId": "req-105-11df9zi",
+      "createdAt": "2026-09-16T05:18:45.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-105-11df9zi-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:18:45.000Z",
+          "durationMs": 1721,
+          "input": "Input for invoke_agent: Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-policy-retrieval",
+          "parentId": "req-105-11df9zi-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:18:45.052Z",
+          "durationMs": 138,
+          "input": "Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-customer-retrieval",
+          "parentId": "req-105-11df9zi-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:18:45.224Z",
+          "durationMs": 155,
+          "input": "Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-planner",
+          "parentId": "req-105-11df9zi-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:18:45.413Z",
+          "durationMs": 413,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 57,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-toolbox",
+          "parentId": "req-105-11df9zi-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:18:45.499Z",
+          "durationMs": 138,
+          "input": "Input for mcp_tool_call: Draft a concise follow-up email using the meeting notes.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-tool",
+          "parentId": "req-105-11df9zi-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:18:45.671Z",
+          "durationMs": 207,
+          "input": "Input for mcp_tool_call: Draft a concise follow-up email using the meeting notes.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-result-retrieval",
+          "parentId": "req-105-11df9zi-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:18:45.912Z",
+          "durationMs": 120,
+          "input": "Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-model",
+          "parentId": "req-105-11df9zi-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:18:46.084Z",
+          "durationMs": 430,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 57,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-105-11df9zi-response",
+          "parentId": "req-105-11df9zi-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:18:46.549Z",
+          "durationMs": 138,
+          "model": "gpt-5-nano",
+          "input": "Input for response_generation: Draft a concise follow-up email using the meeting notes.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 10,
+          "outputTokens": 133,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-106-1dghhdm",
+      "requestId": "req-106-1dghhdm",
+      "createdAt": "2026-09-16T05:19:30.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-106-1dghhdm-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:19:30.000Z",
+          "durationMs": 3570,
+          "input": "Input for invoke_agent: Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 12,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-policy-retrieval",
+          "parentId": "req-106-1dghhdm-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:19:30.107Z",
+          "durationMs": 286,
+          "input": "Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-customer-retrieval",
+          "parentId": "req-106-1dghhdm-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:19:30.464Z",
+          "durationMs": 321,
+          "input": "Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-planner",
+          "parentId": "req-106-1dghhdm-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:19:30.857Z",
+          "durationMs": 857,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 65,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-toolbox",
+          "parentId": "req-106-1dghhdm-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:19:31.035Z",
+          "durationMs": 286,
+          "input": "Input for mcp_tool_call: Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-tool",
+          "parentId": "req-106-1dghhdm-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:19:31.392Z",
+          "durationMs": 428,
+          "input": "Input for mcp_tool_call: Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-result-retrieval",
+          "parentId": "req-106-1dghhdm-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:19:31.892Z",
+          "durationMs": 250,
+          "input": "Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-model",
+          "parentId": "req-106-1dghhdm-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:19:32.249Z",
+          "durationMs": 893,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 65,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-106-1dghhdm-response",
+          "parentId": "req-106-1dghhdm-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:19:33.213Z",
+          "durationMs": 286,
+          "model": "gpt-5-mini",
+          "input": "Input for response_generation: Analyze why token costs increased and propose an evaluation-driven optimization plan.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 12,
+          "outputTokens": 176,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-107-r4f6td",
+      "requestId": "req-107-r4f6td",
+      "createdAt": "2026-09-16T05:20:15.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-107-r4f6td-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:20:15.000Z",
+          "durationMs": 2730,
+          "input": "Input for invoke_agent: Extract the invoice number, amount, and due date.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-policy-retrieval",
+          "parentId": "req-107-r4f6td-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:20:15.082Z",
+          "durationMs": 218,
+          "input": "Extract the invoice number, amount, and due date.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-customer-retrieval",
+          "parentId": "req-107-r4f6td-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:20:15.355Z",
+          "durationMs": 246,
+          "input": "Extract the invoice number, amount, and due date.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-planner",
+          "parentId": "req-107-r4f6td-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:20:15.655Z",
+          "durationMs": 655,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Extract the invoice number, amount, and due date.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 55,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-toolbox",
+          "parentId": "req-107-r4f6td-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:20:15.792Z",
+          "durationMs": 218,
+          "input": "Input for mcp_tool_call: Extract the invoice number, amount, and due date.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-tool",
+          "parentId": "req-107-r4f6td-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:20:16.065Z",
+          "durationMs": 328,
+          "input": "Input for mcp_tool_call: Extract the invoice number, amount, and due date.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-result-retrieval",
+          "parentId": "req-107-r4f6td-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:20:16.447Z",
+          "durationMs": 191,
+          "input": "Extract the invoice number, amount, and due date.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-model",
+          "parentId": "req-107-r4f6td-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:20:16.720Z",
+          "durationMs": 683,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Extract the invoice number, amount, and due date.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 55,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-107-r4f6td-response",
+          "parentId": "req-107-r4f6td-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:20:17.457Z",
+          "durationMs": 218,
+          "model": "gpt-5-mini",
+          "input": "Input for response_generation: Extract the invoice number, amount, and due date.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 10,
+          "outputTokens": 135,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-108-qqclyu",
+      "requestId": "req-108-qqclyu",
+      "createdAt": "2026-09-16T05:21:00.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-108-qqclyu-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:21:00.000Z",
+          "durationMs": 2305,
+          "input": "Input for invoke_agent: Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 11,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-policy-retrieval",
+          "parentId": "req-108-qqclyu-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:21:00.069Z",
+          "durationMs": 184,
+          "input": "Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-customer-retrieval",
+          "parentId": "req-108-qqclyu-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:21:00.300Z",
+          "durationMs": 207,
+          "input": "Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-planner",
+          "parentId": "req-108-qqclyu-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:21:00.553Z",
+          "durationMs": 553,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 61,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-toolbox",
+          "parentId": "req-108-qqclyu-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:21:00.668Z",
+          "durationMs": 184,
+          "input": "Input for mcp_tool_call: Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 11,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-tool",
+          "parentId": "req-108-qqclyu-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:21:00.899Z",
+          "durationMs": 277,
+          "input": "Input for mcp_tool_call: Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 11,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-result-retrieval",
+          "parentId": "req-108-qqclyu-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:21:01.222Z",
+          "durationMs": 161,
+          "input": "Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-model",
+          "parentId": "req-108-qqclyu-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:21:01.452Z",
+          "durationMs": 576,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 61,
+          "outputTokens": 21,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-108-qqclyu-response",
+          "parentId": "req-108-qqclyu-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:21:02.075Z",
+          "durationMs": 184,
+          "model": "gpt-5-nano",
+          "input": "Input for response_generation: Reason about the safety and compliance risks of this proposed workflow.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 11,
+          "outputTokens": 178,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-109-ak7fp1",
+      "requestId": "req-109-ak7fp1",
+      "createdAt": "2026-09-16T05:21:45.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-109-ak7fp1-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:21:45.000Z",
+          "durationMs": 1764,
+          "input": "Input for invoke_agent: Search policy documents for the default context budget.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-policy-retrieval",
+          "parentId": "req-109-ak7fp1-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:21:45.053Z",
+          "durationMs": 141,
+          "input": "Search policy documents for the default context budget.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-customer-retrieval",
+          "parentId": "req-109-ak7fp1-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:21:45.229Z",
+          "durationMs": 159,
+          "input": "Search policy documents for the default context budget.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-planner",
+          "parentId": "req-109-ak7fp1-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:21:45.423Z",
+          "durationMs": 423,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Search policy documents for the default context budget.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 57,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-toolbox",
+          "parentId": "req-109-ak7fp1-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:21:45.512Z",
+          "durationMs": 141,
+          "input": "Input for mcp_tool_call: Search policy documents for the default context budget.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-tool",
+          "parentId": "req-109-ak7fp1-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:21:45.688Z",
+          "durationMs": 212,
+          "input": "Input for mcp_tool_call: Search policy documents for the default context budget.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-result-retrieval",
+          "parentId": "req-109-ak7fp1-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:21:45.935Z",
+          "durationMs": 123,
+          "input": "Search policy documents for the default context budget.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-model",
+          "parentId": "req-109-ak7fp1-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:21:46.111Z",
+          "durationMs": 441,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Search policy documents for the default context budget.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 57,
+          "outputTokens": 16,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-109-ak7fp1-response",
+          "parentId": "req-109-ak7fp1-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:21:46.588Z",
+          "durationMs": 141,
+          "model": "gpt-5-nano",
+          "input": "Input for response_generation: Search policy documents for the default context budget.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 10,
+          "outputTokens": 137,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-110-hkueui",
+      "requestId": "req-110-hkueui",
+      "createdAt": "2026-09-16T05:22:30.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-110-hkueui-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:22:30.000Z",
+          "durationMs": 2784,
+          "input": "Input for invoke_agent: Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 10,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-policy-retrieval",
+          "parentId": "req-110-hkueui-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:22:30.084Z",
+          "durationMs": 223,
+          "input": "Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-customer-retrieval",
+          "parentId": "req-110-hkueui-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:22:30.362Z",
+          "durationMs": 251,
+          "input": "Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-planner",
+          "parentId": "req-110-hkueui-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:22:30.668Z",
+          "durationMs": 668,
+          "model": "gpt-4.1-mini",
+          "input": "Input for chat_model_call: Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 58,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-toolbox",
+          "parentId": "req-110-hkueui-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:22:30.807Z",
+          "durationMs": 223,
+          "input": "Input for mcp_tool_call: Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-tool",
+          "parentId": "req-110-hkueui-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:22:31.086Z",
+          "durationMs": 334,
+          "input": "Input for mcp_tool_call: Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 10,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-result-retrieval",
+          "parentId": "req-110-hkueui-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:22:31.476Z",
+          "durationMs": 195,
+          "input": "Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 10,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-model",
+          "parentId": "req-110-hkueui-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:22:31.754Z",
+          "durationMs": 696,
+          "model": "gpt-4.1-mini",
+          "input": "Input for chat_model_call: Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 58,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-110-hkueui-response",
+          "parentId": "req-110-hkueui-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:22:32.506Z",
+          "durationMs": 223,
+          "model": "gpt-4.1-mini",
+          "input": "Input for response_generation: Create a chart-ready JSON summary of weekly request volume.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 10,
+          "outputTokens": 138,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-111-kxcw00",
+      "requestId": "req-111-kxcw00",
+      "createdAt": "2026-09-16T05:23:15.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-111-kxcw00-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:23:15.000Z",
+          "durationMs": 2130,
+          "input": "Input for invoke_agent: Recommend the best model for a low-latency classification task.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 11,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-policy-retrieval",
+          "parentId": "req-111-kxcw00-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:23:15.064Z",
+          "durationMs": 170,
+          "input": "Recommend the best model for a low-latency classification task.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-customer-retrieval",
+          "parentId": "req-111-kxcw00-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:23:15.277Z",
+          "durationMs": 192,
+          "input": "Recommend the best model for a low-latency classification task.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-planner",
+          "parentId": "req-111-kxcw00-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:23:15.511Z",
+          "durationMs": 511,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Recommend the best model for a low-latency classification task.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 59,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-toolbox",
+          "parentId": "req-111-kxcw00-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:23:15.618Z",
+          "durationMs": 170,
+          "input": "Input for mcp_tool_call: Recommend the best model for a low-latency classification task.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 11,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-tool",
+          "parentId": "req-111-kxcw00-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:23:15.831Z",
+          "durationMs": 256,
+          "input": "Input for mcp_tool_call: Recommend the best model for a low-latency classification task.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 11,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-result-retrieval",
+          "parentId": "req-111-kxcw00-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:23:16.129Z",
+          "durationMs": 149,
+          "input": "Recommend the best model for a low-latency classification task.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 11,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-model",
+          "parentId": "req-111-kxcw00-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:23:16.342Z",
+          "durationMs": 533,
+          "model": "gpt-5-mini",
+          "input": "Input for chat_model_call: Recommend the best model for a low-latency classification task.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 59,
+          "outputTokens": 12,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-111-kxcw00-response",
+          "parentId": "req-111-kxcw00-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:23:16.917Z",
+          "durationMs": 170,
+          "model": "gpt-5-mini",
+          "input": "Input for response_generation: Recommend the best model for a low-latency classification task.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 11,
+          "outputTokens": 102,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": false,
+            "status": "success"
+          }
+        }
+      ]
+    },
+    {
+      "id": "trace-req-112-1u7kv1e",
+      "requestId": "req-112-1u7kv1e",
+      "createdAt": "2026-09-16T05:24:00.000Z",
+      "status": "success",
+      "spans": [
+        {
+          "id": "req-112-1u7kv1e-root",
+          "name": "invoke_agent",
+          "startedAt": "2026-09-16T05:24:00.000Z",
+          "durationMs": 1946,
+          "input": "Input for invoke_agent: Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful invoke_agent output.",
+          "inputTokens": 12,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-policy-retrieval",
+          "parentId": "req-112-1u7kv1e-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:24:00.058Z",
+          "durationMs": 156,
+          "input": "Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-customer-retrieval",
+          "parentId": "req-112-1u7kv1e-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:24:00.253Z",
+          "durationMs": 175,
+          "input": "Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-planner",
+          "parentId": "req-112-1u7kv1e-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:24:00.467Z",
+          "durationMs": 467,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 64,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-toolbox",
+          "parentId": "req-112-1u7kv1e-planner",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:24:00.564Z",
+          "durationMs": 156,
+          "input": "Input for mcp_tool_call: Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-tool",
+          "parentId": "req-112-1u7kv1e-toolbox",
+          "name": "mcp_tool_call",
+          "startedAt": "2026-09-16T05:24:00.759Z",
+          "durationMs": 234,
+          "input": "Input for mcp_tool_call: Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Selected CRM toolbox and crm_search.",
+          "inputTokens": 12,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-result-retrieval",
+          "parentId": "req-112-1u7kv1e-root",
+          "name": "retrieval_call",
+          "startedAt": "2026-09-16T05:24:01.031Z",
+          "durationMs": 136,
+          "input": "Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful retrieval_call output.",
+          "inputTokens": 12,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-model",
+          "parentId": "req-112-1u7kv1e-root",
+          "name": "chat_model_call",
+          "startedAt": "2026-09-16T05:24:01.226Z",
+          "durationMs": 487,
+          "model": "gpt-5-nano",
+          "input": "Input for chat_model_call: Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful chat_model_call output.",
+          "inputTokens": 64,
+          "outputTokens": 17,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        },
+        {
+          "id": "req-112-1u7kv1e-response",
+          "parentId": "req-112-1u7kv1e-root",
+          "name": "response_generation",
+          "startedAt": "2026-09-16T05:24:01.751Z",
+          "durationMs": 156,
+          "model": "gpt-5-nano",
+          "input": "Input for response_generation: Develop an enterprise rollout strategy with cost, latency, and quality guardrails.",
+          "output": "Successful response_generation output.",
+          "inputTokens": 12,
+          "outputTokens": 145,
+          "metadata": {
+            "simulation": true,
+            "cacheHit": true,
+            "status": "success"
+          }
+        }
+      ]
+    }
+  ],
+  "knowledge": [
+    {
+      "id": "token-budget-policy",
+      "title": "Token Budget Policy",
+      "createdAt": "2026-09-16T02:00:00.000Z",
+      "source": "seed",
+      "content": "# Token Budget Policy\n\nRoute simple classification and extraction requests to the smallest capable model. Escalate only when evaluation evidence shows a quality gap.\n\nUse a 1,200-token default context budget. Retrieval should inject at most three relevant chunks and preserve source attribution.\n\nPrompt-prefix caching is required for stable instructions longer than 500 tokens. Track cached input tokens separately from total input tokens."
+    },
+    {
+      "id": "mcp-toolbox-standard",
+      "title": "MCP Toolbox Standard",
+      "createdAt": "2026-09-16T02:02:00.000Z",
+      "source": "seed",
+      "content": "# MCP Toolbox Standard\n\nExpose tools progressively by business domain instead of sending every tool schema with every turn. The agent first selects CRM, Knowledge, Productivity, Analytics, or Support.\n\nA toolbox should contain three to eight closely related tools. Evaluate both toolbox selection and final tool-call accuracy."
+    },
+    {
+      "id": "evaluation-gates",
+      "title": "Evaluation Release Gates",
+      "createdAt": "2026-09-16T02:04:00.000Z",
+      "source": "seed",
+      "content": "# Evaluation Release Gates\n\nProduction candidates require aggregate scores of at least 3.7 out of 5 for relevance, groundedness, coherence, fluency, task completion, and safety.\n\nTool-enabled agents also require ToolSelection and ToolCallAccuracy. Any safety failure blocks release even when the aggregate passes."
+    },
+    {
+      "id": "roi-playbook",
+      "title": "Agent ROI Playbook",
+      "createdAt": "2026-09-16T02:06:00.000Z",
+      "source": "seed",
+      "content": "# Agent ROI Playbook\n\nBusiness ROI equals business process value minus solution costs. Value includes time saved, cycle-time reduction, avoided rework, and increased conversion.\n\nSolution costs include model tokens, retrieval infrastructure, tool execution, observability, evaluation, and operational support. Optimize the end-to-end process, not model price in isolation."
+    }
+  ],
+  "evaluations": []
+}

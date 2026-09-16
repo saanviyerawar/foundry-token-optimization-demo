@@ -1,0 +1,36 @@
+{
+  "$schema": "https://schema.management.azure.com/schemas/2019-04-01/deploymentParameters.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "environmentName": {
+      "value": "${AZURE_ENV_NAME}"
+    },
+    "location": {
+      "value": "${AZURE_LOCATION}"
+    },
+    "principalId": {
+      "value": "${AZURE_PRINCIPAL_ID}"
+    },
+    "deployWebApp": {
+      "value": "${DEPLOY_WEB_APP}"
+    },
+    "allowApiKeyAuth": {
+      "value": "${ALLOW_API_KEY_AUTH}"
+    },
+    "connectApplicationInsights": {
+      "value": "${CONNECT_APPLICATION_INSIGHTS}"
+    },
+    "deployModelRouter": {
+      "value": "${DEPLOY_MODEL_ROUTER}"
+    },
+    "appServiceSku": {
+      "value": "${APP_SERVICE_SKU}"
+    },
+    "modelRouterVersion": {
+      "value": "${MODEL_ROUTER_VERSION}"
+    },
+    "modelRouterCapacity": {
+      "value": "${MODEL_ROUTER_CAPACITY}"
+    }
+  }
+}

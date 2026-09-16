@@ -1,0 +1,48 @@
+{
+  "name": "foundry-agent-optimization-demo",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "seed": "tsx scripts/seed.ts",
+    "reset": "tsx scripts/reset.ts",
+    "load": "tsx scripts/load.ts",
+    "azure:deploy": "pwsh -NoProfile -File scripts/deploy.ps1",
+    "azure:agent": "tsx scripts/create-agent.ts",
+    "azure:load": "tsx scripts/load-real.ts",
+    "azure:env": "pwsh -NoProfile -File scripts/export-azure-env.ps1",
+    "azure:role": "pwsh -NoProfile -File scripts/assign-presenter-role.ps1",
+    "azure:router": "pwsh -NoProfile -File scripts/deploy-model-router.ps1",
+    "azure:validate": "tsx scripts/validate-azure-config.ts",
+    "azure:down": "pwsh -NoProfile -File scripts/teardown.ps1"
+  },
+  "dependencies": {
+    "@azure/ai-projects": "^2.6.0",
+    "@azure/identity": "^4.13.3",
+    "@azure/monitor-opentelemetry": "^1.20.0",
+    "@opentelemetry/api": "^1.9.1",
+    "lucide-react": "^0.468.0",
+    "next": "15.5.25",
+    "openai": "^7.12.1",
+    "react": "19.0.0",
+    "react-dom": "19.0.0",
+    "recharts": "^3.6.0"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3.2.0",
+    "@tailwindcss/postcss": "^4.1.18",
+    "@types/node": "^22.10.2",
+    "@types/react": "^19.0.3",
+    "@types/react-dom": "^19.0.2",
+    "eslint": "^9.17.0",
+    "eslint-config-next": "15.5.25",
+    "tailwindcss": "^4.1.18",
+    "tsx": "^4.19.2",
+    "typescript": "^5.7.2",
+    "vitest": "^3.0.5"
+  }
+}
