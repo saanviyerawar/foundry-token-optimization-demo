@@ -22,7 +22,7 @@ The default deployment creates a tenant-owned Foundry environment and a runnable
 
 ## Prerequisites and roles
 
-1. Install Node.js 22+, Azure CLI, Azure Developer CLI, and Git.
+1. Install Node.js 22 LTS, Azure CLI, Azure Developer CLI, and Git. The repository includes `.nvmrc`.
 2. Select the correct Azure tenant and subscription.
 3. Use an identity that can create the resource group and resources.
 4. To automate RBAC, use Owner or User Access Administrator plus resource-creation permissions at the subscription/resource-group scope.
@@ -31,12 +31,12 @@ The default deployment creates a tenant-owned Foundry environment and a runnable
 Verify context:
 
 ```powershell
-azd auth login
+az login
 az account show --query "{subscription:name, tenant:tenantId}" --output table
 az account get-access-token --resource https://ai.azure.com --query expiresOn --output tsv
 ```
 
-`az login` is required only for helper scripts that call Azure CLI directly, including the model-router REST fallback and presenter-role repair.
+The deployment wrapper uses this Azure CLI context as the source of truth, authenticates `azd` to the same tenant, and checks effective deployment and role-assignment permissions before provisioning.
 
 ## Default deployment
 
@@ -45,13 +45,13 @@ npm install
 npm run azure:deploy -- -EnvironmentName demo -Location eastus2
 ```
 
-This provisions the directly runnable Foundry portal demo without App Service.
+This provisions the directly runnable Foundry portal demo without App Service. To target a subscription other than the active Azure CLI subscription, add `-SubscriptionId <id>`.
 
 Or provision the portal-first experience directly:
 
 ```powershell
-azd auth login
-azd env new demo --location eastus2
+azd auth login --tenant-id (az account show --query tenantId --output tsv)
+azd env new demo --location eastus2 --subscription (az account show --query id --output tsv)
 azd provision
 ```
 
@@ -207,7 +207,10 @@ What-if can still fail on tenant policy, provider registration, model catalog va
 | Symptom | Resolution |
 |---|---|
 | Model deployment fails | List models for the selected region, update model/version/SKU/capacity, and rerun `azd provision`. |
+| Model deployments report `Another operation is being performed on the parent resource` | Pull the latest repository version. Direct model deployments are serialized to avoid concurrent updates to the same Foundry account; rerunning remains safe and idempotent. |
 | Agent creation returns 403 | Wait for RBAC propagation, run `npm run azure:role`, then `npm run azure:agent`. |
+| `azd` requests a subscription or targets the wrong tenant | Run `az login`, select the intended subscription with `az account set --subscription <id>`, then rerun the wrapper. It binds `azd` to that subscription and tenant. |
+| Next.js fails to load `@next/swc-win32-x64-msvc` | Use Node.js 22 LTS, remove `node_modules` and `.next`, then run `npm ci`. On Windows, repair the Microsoft Visual C++ 2015-2022 Redistributable (x64) if the native binary still cannot load. |
 | App returns provider 502 | Check App Service environment variables, managed-identity role assignment, deployment state, and quota. |
 | No Foundry traces appear | Confirm the App Insights connection under project details, generate fresh traffic, and wait several minutes. |
 | App Service starts but data resets | Confirm `DATA_DIRECTORY=/home/data`; avoid scaling to multiple instances because JSON persistence is a single-instance demo design. |
