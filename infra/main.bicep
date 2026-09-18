@@ -14,12 +14,6 @@ param tags object = {
   solution: 'foundry-agent-optimization-demo'
 }
 
-@description('Optionally deploy the companion web app. The default experience runs directly in Microsoft Foundry.')
-param deployWebApp bool = false
-
-@description('App Service plan SKU. B1 is practical for demos; choose a different SKU to match tenant policy.')
-param appServiceSku string = 'B1'
-
 @description('Allow account keys as a fallback. Microsoft Entra ID remains the default.')
 param allowApiKeyAuth bool = false
 
@@ -85,8 +79,6 @@ module resources './resources.bicep' = {
     searchLocation: searchLocation
     principalId: principalId
     tags: tags
-    deployWebApp: deployWebApp
-    appServiceSku: appServiceSku
     allowApiKeyAuth: allowApiKeyAuth
     connectApplicationInsights: connectApplicationInsights
     deployModelRouter: deployModelRouter
@@ -99,8 +91,6 @@ module resources './resources.bicep' = {
 
 output AZURE_RESOURCE_GROUP string = resourceGroup.name
 output AZURE_LOCATION string = location
-output AZURE_WEB_APP_NAME string = resources.outputs.webAppName
-output AZURE_WEB_APP_URI string = resources.outputs.webAppUri
 output FOUNDRY_ACCOUNT_NAME string = resources.outputs.foundryAccountName
 output FOUNDRY_ACCOUNT_ENDPOINT string = resources.outputs.foundryAccountEndpoint
 output FOUNDRY_PROJECT_RESOURCE_ID string = resources.outputs.foundryProjectResourceId

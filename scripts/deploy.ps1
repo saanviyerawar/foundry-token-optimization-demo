@@ -6,8 +6,6 @@ param(
     [string]$PrincipalId = "",
     [switch]$DeployModelRouter,
     [switch]$SkipPortalDemoAssets,
-    [switch]$DeployCompanionApp,
-    [switch]$SkipWebApp,
     [switch]$AllowApiKeyAuth
 )
 
@@ -15,10 +13,6 @@ $ErrorActionPreference = "Stop"
 
 if (-not (Get-Command azd -ErrorAction SilentlyContinue)) { throw "Azure Developer CLI (azd) is required." }
 if (-not (Get-Command az -ErrorAction SilentlyContinue)) { throw "Azure CLI (az) is required." }
-if ($DeployCompanionApp.IsPresent -and $SkipWebApp.IsPresent) {
-    throw "Choose either -DeployCompanionApp or -SkipWebApp, not both."
-}
-
 function Get-ActiveAzureAccount {
     $accountJson = & az account show --output json 2>$null
     if ($LASTEXITCODE -ne 0 -or [string]::IsNullOrWhiteSpace(($accountJson -join ""))) {
@@ -73,7 +67,6 @@ $deployRouter = $DeployModelRouter.IsPresent -or $deployPortalAssets
 & azd env set DEPLOY_MODEL_ROUTER ($deployRouter.ToString().ToLowerInvariant()) | Out-Null
 & azd env set DEPLOY_FOUNDRY_IQ ($deployPortalAssets.ToString().ToLowerInvariant()) | Out-Null
 & azd env set DEPLOY_PORTAL_DEMO_ASSETS ($deployPortalAssets.ToString().ToLowerInvariant()) | Out-Null
-& azd env set DEPLOY_WEB_APP ($DeployCompanionApp.IsPresent.ToString().ToLowerInvariant()) | Out-Null
 & azd env set ALLOW_API_KEY_AUTH ($AllowApiKeyAuth.IsPresent.ToString().ToLowerInvariant()) | Out-Null
 
 $principalId = $PrincipalId.Trim()
@@ -115,13 +108,8 @@ if ($LASTEXITCODE -eq 0 -and -not [string]::IsNullOrWhiteSpace(($permissionsJson
     Write-Warning "Unable to preflight effective Azure permissions; deployment validation will perform the authoritative check."
 }
 
-if ($DeployCompanionApp.IsPresent) {
-    & azd up
-    if ($LASTEXITCODE -ne 0) { throw "azd up failed." }
-} else {
-    & azd provision
-    if ($LASTEXITCODE -ne 0) { throw "azd provision failed." }
-}
+& azd provision
+if ($LASTEXITCODE -ne 0) { throw "azd provision failed." }
 
 Write-Host ""
 Write-Host "Foundry demo deployment complete."
@@ -131,8 +119,4 @@ if ($deployPortalAssets) {
     Write-Host "Then open youtube-router-agent and the seeded Evaluations, Toolboxes, Knowledge, and Tracing views."
 } else {
     Write-Host "Then open foundry-optimization-agent in the agent playground."
-}
-if ($DeployCompanionApp.IsPresent) {
-    Write-Host "The optional companion app URI is:"
-    & azd env get-value AZURE_WEB_APP_URI
 }

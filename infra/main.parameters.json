@@ -14,9 +14,6 @@
     "principalId": {
       "value": "${AZURE_PRINCIPAL_ID}"
     },
-    "deployWebApp": {
-      "value": "${DEPLOY_WEB_APP}"
-    },
     "allowApiKeyAuth": {
       "value": "${ALLOW_API_KEY_AUTH}"
     },
@@ -28,9 +25,6 @@
     },
     "deployFoundryIQ": {
       "value": "${DEPLOY_FOUNDRY_IQ}"
-    },
-    "appServiceSku": {
-      "value": "${APP_SERVICE_SKU}"
     },
     "modelRouterVersion": {
       "value": "${MODEL_ROUTER_VERSION}"

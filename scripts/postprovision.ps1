@@ -34,7 +34,6 @@ if (-not $created) {
     throw "Foundry resources deployed, but agent creation failed after retries. Run npm run azure:agent after RBAC propagation."
 }
 
-& $PSScriptRoot\export-azure-env.ps1
 if ((Get-AzdValue "DEPLOY_PORTAL_DEMO_ASSETS") -eq "true") {
     & $PSScriptRoot\setup-portal-demo.ps1
 }

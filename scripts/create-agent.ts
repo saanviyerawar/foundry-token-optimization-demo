@@ -9,7 +9,7 @@ async function main() {
   const endpoint = process.env.FOUNDRY_PROJECT_ENDPOINT;
   const agentName = process.env.FOUNDRY_AGENT_NAME ?? "foundry-optimization-agent";
   const model = process.env.MODEL_DEPLOYMENT_GPT_5_MINI ?? "gpt-5-mini";
-  if (!endpoint) throw new Error("FOUNDRY_PROJECT_ENDPOINT is required. Run azd provision or npm run azure:env.");
+  if (!endpoint) throw new Error("FOUNDRY_PROJECT_ENDPOINT is required. Run azd provision first.");
 
   const project = new AIProjectClient(endpoint, new DefaultAzureCredential());
   const definition = {

@@ -1,92 +1,53 @@
-# 12-15 Minute Foundry-only Live Demo Runbook
+# 12-15 Minute Foundry-only Runbook
 
-The Foundry portal is the only screen throughout this demo.
+Use only `https://ai.azure.com`. Open the deployed project and confirm the models, agents, five completed evaluation runs, `youtube-learning-toolbox`, `token-optimization-knowledge`, and traces before presenting.
 
-**Project → tokenomics → deployments → evaluations → toolboxes → knowledge → traces → monitoring → ROI**
+## 0:00-1:30 - Business frame
 
-See [`FOUNDRY-PORTAL-WALKTHROUGH.md`](FOUNDRY-PORTAL-WALKTHROUGH.md) for detailed presenter notes and fallback guidance.
+- Start on the project overview.
+- Explain the YouTube transcript workload: Key Points, Study Guide, and Flashcards.
+- State: **ROI = business-process value - complete solution cost**.
+- Tokens are one input cost alongside retrieval, monitoring, platform, and engineering costs.
 
-## Tenant setup before the session
+## 1:30-3:00 - Model routing
 
-```powershell
-git clone <your-fork-url>
-cd foundry-token-optimization-demo
-npm install
-npm run azure:deploy -- -EnvironmentName demo -Location eastus2
-```
+- Open Models.
+- Compare `gpt-5-nano`, `gpt-5-mini`, `gpt-4.1-mini`, and `model-router`.
+- Explain that the smallest capable model is preferred only when it continues to pass the evaluation gates.
 
-Open `https://ai.azure.com` to the deployed project. Confirm four model deployments, the four YouTube learning agents, five completed evaluation runs, `youtube-learning-toolbox`, `token-optimization-knowledge`, the Application Insights connection, and one ingested trace.
+## 3:00-5:30 - Evaluation-driven development
 
-## 0:00-1:30 - Orient in the Foundry project
+- Open Evaluations.
+- Compare the mini, nano, and router quality/safety runs.
+- Open the Agent and Tool Criteria run.
+- Open the Customer Satisfaction conversation-level run.
+- Explain why quality and safety failures block a release even when token cost improves.
 
-- Start on the Foundry project overview, not the companion app.
-- Identify the project endpoint, managed identity, and Application Insights connection.
-- State the business frame: **ROI = business process value - complete solution cost**.
-- Explain that token cost is one operating signal alongside quality, safety, latency, reliability, and process value.
+## 5:30-7:00 - Context optimization and simplification
 
-## 1:30-2:40 - Inspect model deployments
+- Open `youtube-learning-toolbox`.
+- Explain progressive disclosure instead of injecting every tool schema.
+- Compare the concise shared instructions on the baseline, nano, and router agents.
 
-- Open the model deployment list.
-- Compare the deployed `gpt-5-mini`, `gpt-5-nano`, and `gpt-4.1-mini`.
-- Explain that routing selects the smallest deployment that still satisfies evaluated quality, latency, and capacity requirements.
-- Show `model-router` and explain that routing is measured against the same quality gate as direct models.
+## 7:00-8:30 - Foundry IQ retrieval
 
-## 2:40-4:10 - Compare the agents
+- Open `token-optimization-knowledge`.
+- Retrieve guidance about ROI, evaluation, routing, caching, or tracing.
+- Open `youtube-learning-knowledge-agent` and show its knowledge connection.
 
-- Compare `youtube-baseline-agent`, `youtube-nano-agent`, and `youtube-router-agent`.
-- Review their model choices and shared concise instructions.
-- Run one representative prompt in the router-agent playground.
-- Explain that durable behavior belongs in instructions while tools and knowledge should be attached intentionally.
+## 8:30-11:00 - Tracing and telemetry
 
-## 4:10-5:40 - Establish the Foundry evaluation gate
+- Open Tracing and inspect a seeded transcript-learning request.
+- Identify model duration, input/output tokens, and any orchestration spans.
+- Open Monitoring/Application Insights for request, latency, and failure signals.
+- Explain that Azure Cost Management is authoritative for billed spend.
 
-- Open the seeded baseline, nano, and router evaluation runs.
-- Show the common dataset mappings and coherence, relevance, and task-score evaluators.
-- Compare quality results against latency and token cost.
-- State that every optimization must continue to pass this gate.
+## 11:00-12:30 - Caching
 
-Use `/evaluations` only if portal evaluation setup is unavailable.
+- Use repeated prompt prefixes and token signals to explain prompt caching.
+- Explain that production response caching normally uses APIM/Redis and is not falsely represented as deployed.
 
-## 5:40-7:10 - Show context optimization
+## 12:30-15:00 - Close
 
-- Open Toolboxes and select `youtube-learning-toolbox`.
-- Explain progressive disclosure: expose the smallest relevant tool set instead of sending every schema on every turn.
-- Connect this to the **Optimize context** and **Simplify** principles.
-
-## 7:10-8:30 - Show retrieval
-
-- Open Knowledge and select `token-optimization-knowledge`.
-- Retrieve guidance for ROI, routing, or caching.
-- Open `youtube-learning-knowledge-agent` and show its Foundry IQ connection.
-- Explain that retrieval pays token cost only for relevant evidence.
-
-## 8:30-10:20 - Inspect a real trace in Foundry
-
-- Open the agent or project trace view and select a request generated during deployment.
-- Expand the available orchestration, model, retrieval, and tool spans.
-- Inspect duration, inputs, outputs, token counts, and failures.
-- Correlate the run with Application Insights if deeper transaction details are useful.
-
-Use `/traces` only when ingestion is delayed or as an offline explanation of span anatomy.
-
-## 10:20-12:20 - Monitor operating signals
-
-- Open Foundry monitoring and the connected Application Insights resource.
-- Review request volume, latency, failures, and available token signals.
-- Explain that Azure Cost Management is the authoritative spend source.
-- Use input/output token and latency signals to discuss prompt caching and response caching.
-- State that response caching normally uses APIM/Redis and is intentionally not claimed as part of this Foundry-only deployment.
-
-## 12:20-15:00 - Close the ROI loop
-
-- Return to the Foundry evaluation and monitoring views.
-- Summarize: **evaluate → change → generate traffic → trace → monitor → evaluate again**.
-- Reconnect model and token savings to quality, safety, reliability, and business-process value.
-- Return to: **ROI = business process value - complete solution cost**.
-- Close with: **evaluate → route/compress/retrieve/cache/simplify → trace → monitor → evaluate again**.
-
-## After the session
-
-```powershell
-npm run azure:down -- -Force
-```
+- Reconnect routing, context compression, retrieval, caching, and simplification to business ROI.
+- Close with: **evaluate → optimize → trace → monitor → evaluate again**.
