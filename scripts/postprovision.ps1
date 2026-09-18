@@ -35,5 +35,8 @@ if (-not $created) {
 }
 
 & $PSScriptRoot\export-azure-env.ps1
+if ((Get-AzdValue "DEPLOY_PORTAL_DEMO_ASSETS") -eq "true") {
+    & $PSScriptRoot\setup-portal-demo.ps1
+}
 Write-Host "Post-provision setup complete."
 Write-Host "Open https://ai.azure.com, select project $env:FOUNDRY_PROJECT_NAME, and run $env:FOUNDRY_AGENT_NAME in the agent playground."

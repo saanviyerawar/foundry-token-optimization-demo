@@ -8,6 +8,9 @@
     "location": {
       "value": "${AZURE_LOCATION}"
     },
+    "searchLocation": {
+      "value": "${SEARCH_LOCATION}"
+    },
     "principalId": {
       "value": "${AZURE_PRINCIPAL_ID}"
     },
@@ -22,6 +25,9 @@
     },
     "deployModelRouter": {
       "value": "${DEPLOY_MODEL_ROUTER}"
+    },
+    "deployFoundryIQ": {
+      "value": "${DEPLOY_FOUNDRY_IQ}"
     },
     "appServiceSku": {
       "value": "${APP_SERVICE_SKU}"

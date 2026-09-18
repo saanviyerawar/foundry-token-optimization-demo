@@ -1,8 +1,11 @@
 param(
     [string]$EnvironmentName = "demo",
     [string]$Location = "eastus2",
+    [string]$SearchLocation = "",
     [string]$SubscriptionId = "",
+    [string]$PrincipalId = "",
     [switch]$DeployModelRouter,
+    [switch]$SkipPortalDemoAssets,
     [switch]$DeployCompanionApp,
     [switch]$SkipWebApp,
     [switch]$AllowApiKeyAuth
@@ -64,9 +67,38 @@ if ($LASTEXITCODE -ne 0) {
 
 & azd env set AZURE_SUBSCRIPTION_ID $resolvedSubscriptionId | Out-Null
 & azd env set AZURE_LOCATION $Location | Out-Null
-& azd env set DEPLOY_MODEL_ROUTER ($DeployModelRouter.IsPresent.ToString().ToLowerInvariant()) | Out-Null
+& azd env set SEARCH_LOCATION $(if ($SearchLocation) { $SearchLocation } else { $Location }) | Out-Null
+$deployPortalAssets = -not $SkipPortalDemoAssets.IsPresent
+$deployRouter = $DeployModelRouter.IsPresent -or $deployPortalAssets
+& azd env set DEPLOY_MODEL_ROUTER ($deployRouter.ToString().ToLowerInvariant()) | Out-Null
+& azd env set DEPLOY_FOUNDRY_IQ ($deployPortalAssets.ToString().ToLowerInvariant()) | Out-Null
+& azd env set DEPLOY_PORTAL_DEMO_ASSETS ($deployPortalAssets.ToString().ToLowerInvariant()) | Out-Null
 & azd env set DEPLOY_WEB_APP ($DeployCompanionApp.IsPresent.ToString().ToLowerInvariant()) | Out-Null
 & azd env set ALLOW_API_KEY_AUTH ($AllowApiKeyAuth.IsPresent.ToString().ToLowerInvariant()) | Out-Null
+
+$principalId = $PrincipalId.Trim()
+if (-not $principalId) {
+    $savedPrincipalId = (& azd env get-value AZURE_PRINCIPAL_ID 2>$null)
+    if ($LASTEXITCODE -eq 0) {
+        $principalId = (($savedPrincipalId | Where-Object { $_ }) -join "").Trim()
+    }
+}
+if (-not $principalId -and $account.user.type -eq "user") {
+    $resolvedPrincipalId = (& az ad signed-in-user show --query id --output tsv 2>$null)
+    if ($LASTEXITCODE -eq 0 -and $resolvedPrincipalId) {
+        $principalId = (($resolvedPrincipalId | Where-Object { $_ }) -join "").Trim()
+    }
+} elseif (-not $principalId -and $account.user.type -eq "servicePrincipal") {
+    $resolvedPrincipalId = (& az ad sp show --id $account.user.name --query id --output tsv 2>$null)
+    if ($LASTEXITCODE -eq 0 -and $resolvedPrincipalId) {
+        $principalId = (($resolvedPrincipalId | Where-Object { $_ }) -join "").Trim()
+    }
+}
+if ($principalId) {
+    & azd env set AZURE_PRINCIPAL_ID $principalId | Out-Null
+} elseif ($deployPortalAssets) {
+    throw "Unable to resolve the deploying identity object ID required for Foundry IQ data-plane roles."
+}
 
 $permissionsJson = & az rest --method get --url "https://management.azure.com/subscriptions/$resolvedSubscriptionId/providers/Microsoft.Authorization/permissions?api-version=2022-04-01" --output json 2>$null
 if ($LASTEXITCODE -eq 0 -and -not [string]::IsNullOrWhiteSpace(($permissionsJson -join ""))) {
@@ -95,7 +127,11 @@ Write-Host ""
 Write-Host "Foundry demo deployment complete."
 Write-Host "Open https://ai.azure.com and select the project named:"
 & azd env get-value FOUNDRY_PROJECT_NAME
-Write-Host "Then open foundry-optimization-agent in the agent playground."
+if ($deployPortalAssets) {
+    Write-Host "Then open youtube-router-agent and the seeded Evaluations, Toolboxes, Knowledge, and Tracing views."
+} else {
+    Write-Host "Then open foundry-optimization-agent in the agent playground."
+}
 if ($DeployCompanionApp.IsPresent) {
     Write-Host "The optional companion app URI is:"
     & azd env get-value AZURE_WEB_APP_URI

@@ -1,6 +1,6 @@
 # Microsoft Foundry Portal Walkthrough
 
-This is the canonical live-demo path. Microsoft Foundry is the primary presentation surface; the repository's Next.js application is a companion for repeatable workload generation, transparent optimization comparisons, and offline fallback.
+This is the canonical live-demo path. Microsoft Foundry is the only presentation surface; the repository's Next.js application is an offline fallback.
 
 Use `npm run azure:deploy` for the direct portal demo. Use `npm run azure:deploy:companion` when the same session also needs a hosted companion application.
 
@@ -8,20 +8,16 @@ Portal labels can change as Microsoft Foundry evolves. Follow the equivalent pro
 
 ## Presentation layout
 
-Use two windows:
-
-1. **Primary:** `https://ai.azure.com`, opened to the deployed Foundry project.
-2. **Companion:** the local app or `AZURE_WEB_APP_URI`, opened only when a step calls for generated traffic or a supporting comparison.
+Use one window: `https://ai.azure.com`, opened to the deployed Foundry project.
 
 Before the audience joins:
 
 1. Confirm the correct tenant, subscription, and Foundry project.
 2. Confirm the project endpoint and Application Insights connection.
 3. Confirm the three model deployments are healthy.
-4. Open `foundry-optimization-agent` and run one non-sensitive baseline prompt.
-5. Generate one request from the companion app and wait for its trace to appear.
-6. Prepare the evaluation dataset and evaluator selection in the portal.
-7. Keep mock mode open as a fallback, but do not lead with it.
+4. Confirm the four seeded agents, three evaluations, toolbox, and knowledge base.
+5. Confirm at least one seeded trace is visible.
+6. Keep mock mode available only as a no-network fallback.
 
 ## 1. Orient in the Foundry project
 
@@ -40,14 +36,14 @@ Open the project's model deployment view.
 
 - Compare `gpt-5-mini`, `gpt-5-nano`, and `gpt-4.1-mini`.
 - Explain that model choice affects capability, latency, capacity, and token economics.
-- If the optional model router is deployed, show it as an evaluated routing option rather than claiming it is enabled by default.
+- Show `model-router` as the evaluated routing option created by the default deployment.
 - State that the logical Claude route maps to an approved fallback unless the presenter separately deployed Claude.
 
 Do not spend time comparing catalog marketing pages. Keep the discussion tied to deployments available to this project.
 
 ## 3. Open the prompt agent
 
-Open `foundry-optimization-agent`.
+Compare `youtube-baseline-agent`, `youtube-nano-agent`, `youtube-router-agent`, and `youtube-learning-knowledge-agent`.
 
 - Review the selected model and concise instructions.
 - Show where tools or knowledge connections would be attached in a production implementation.
@@ -58,7 +54,7 @@ Message: durable behavior belongs in agent instructions; capabilities and facts 
 
 ## 4. Establish the evaluation gate
 
-Open the Foundry evaluation experience.
+Open the seeded `Token Optimization` evaluations for baseline, nano, and router targets.
 
 - Select the agent or model target.
 - Map the prepared dataset fields.
@@ -70,26 +66,17 @@ Message: a cheaper or faster run is not an improvement unless it still passes th
 
 If tenant capabilities or evaluator names differ, use the closest supported evaluators and state the substitution. Use `/evaluations` only as the deterministic fallback.
 
-## 5. Generate controlled optimized traffic
+## 5. Inspect Toolboxes and Foundry IQ
 
-Move briefly to the companion app.
-
-1. Open `/route-requests`.
-2. Submit the default complex prompt with **Balanced** priority.
-3. Submit `Classify this support request as billing, outage, or access.` with **Lowest latency**.
-4. Copy a real-mode trace ID.
-
-For a larger monitoring sample:
-
-```powershell
-npm run azure:load -- --count 10 --rate 1 --concurrency 2 --execute
-```
-
-The app is performing a supporting role here: it generates consistent traffic and makes the routing policy easy to compare. Return to Foundry after the requests complete.
+- Open Toolboxes and select `youtube-learning-toolbox`.
+- Explain that a focused toolbox reduces tool-schema context while preserving discoverability.
+- Open Knowledge and select `token-optimization-knowledge`.
+- Run a retrieval query about ROI, routing, caching, or evaluation-driven development.
+- Open `youtube-learning-knowledge-agent` to show how the knowledge base is attached through the project connection.
 
 ## 6. Inspect traces in Foundry
 
-Open the agent or project trace view and search for the copied trace ID.
+Open the agent or project trace view and inspect one of the requests generated during deployment.
 
 - Inspect the end-to-end duration.
 - Expand model, orchestration, retrieval, and tool spans that are present.
@@ -114,17 +101,14 @@ Move to `/telemetry` only when an immediate side-by-side visualization helps exp
 
 ## 8. Explain context optimization
 
-Use the portal agent configuration as the anchor, then use the companion pages selectively:
+Use the portal assets as the evidence:
 
-- `/toolboxes`: compare all tool schemas with progressive toolbox disclosure.
-- `/knowledge`: show exactly which local chunks enter context.
-- `/telemetry`: compare no cache, prompt-prefix cache, and response-cache behavior.
+- Toolboxes demonstrate progressive disclosure instead of injecting every tool schema.
+- Foundry IQ demonstrates retrieving only relevant knowledge instead of placing all facts in every prompt.
+- Agent instructions demonstrate simplification and durable prompt-prefix reuse.
+- Monitoring token and latency signals provide the bridge to caching economics.
 
-Be explicit about implementation boundaries:
-
-- Foundry IQ is not provisioned by default.
-- APIM semantic caching and Azure Managed Redis are not provisioned by default.
-- The local retrieval and caching views teach the design trade-offs; they are not evidence that those managed services exist in the tenant.
+Be explicit that APIM semantic caching and Azure Managed Redis are not provisioned. Prompt caching is a model behavior; production response caching requires a separate cache layer.
 
 ## 9. Close in Foundry
 

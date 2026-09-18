@@ -1,0 +1,65 @@
+[
+  {
+    "id": "tokenomics-roi",
+    "title": "Tokenomics and business ROI",
+    "category": "business",
+    "content": "Tokens are a variable input cost, not the business outcome. Evaluate an AI solution using ROI equals business process value minus total solution costs. Total solution costs include model tokens, latency, hosting, retrieval, monitoring, engineering, failures, and operational support. Optimize tokens only when quality, safety, reliability, and business value remain acceptable.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "evaluation-driven-development",
+    "title": "Evaluation-driven development",
+    "category": "evaluation",
+    "content": "Establish measurable quality and safety thresholds before optimizing. Run a baseline evaluation, change one routing or context decision, generate comparable traffic, inspect traces and telemetry, and evaluate again. A cheaper or faster solution is not an improvement if it fails the release gate. The demo release threshold is an aggregate evaluator score of at least 3.7 out of 5, with any safety failure blocking release.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "model-routing",
+    "title": "Design principle 1: model routing",
+    "category": "design-principle",
+    "content": "Route each request to the smallest model that satisfies evaluated quality, latency, and capacity requirements. Simple classification and extraction can use a smaller model. Complex planning or ambiguous reasoning can use a stronger model. Model Router can automate this decision, but routing policy must be measured against the same evaluation dataset.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "context-optimization",
+    "title": "Design principle 2: optimize context",
+    "category": "design-principle",
+    "content": "Reduce repeated context before reducing answer quality. Keep durable behavior in concise agent instructions, summarize conversation history, retrieve only relevant evidence, and expose tools progressively. The default context budget is 1,200 tokens and no more than three relevant knowledge chunks should be injected.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "toolboxes",
+    "title": "Toolboxes and progressive disclosure",
+    "category": "design-principle",
+    "content": "A toolbox should contain three to eight closely related tools. Tool search and deferred loading avoid placing every tool schema into every model request. Smaller tool context reduces input tokens and can improve tool-selection accuracy by removing irrelevant choices.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "retrieval",
+    "title": "Design principle 3: retrieval",
+    "category": "design-principle",
+    "content": "Externalize changing or detailed knowledge instead of embedding it in system prompts. Foundry IQ uses Azure AI Search knowledge bases to retrieve relevant evidence, apply semantic ranking, and return source references. Retrieval should be evaluated for relevance, groundedness, citation quality, latency, and token usage.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "caching",
+    "title": "Design principle 4: caching",
+    "category": "design-principle",
+    "content": "Prompt-prefix caching reduces repeated processing when stable instructions and context prefixes are reused. Response caching can avoid model calls for safe, semantically equivalent requests. Production response caching can be implemented with Azure API Management semantic caching and Azure Managed Redis. Cache policies must account for identity, freshness, privacy, invalidation, and evaluation quality.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "simplify",
+    "title": "Design principle 5: simplify",
+    "category": "design-principle",
+    "content": "Remove unnecessary agent steps, tool calls, retries, prompt instructions, retrieved chunks, and verbose output. Simpler systems are usually cheaper, faster, easier to evaluate, and easier to operate. Optimization should target the entire workflow rather than model price alone.",
+    "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "telemetry-tracing-spend",
+    "title": "Telemetry, tracing, and spend",
+    "category": "operations",
+    "content": "Use Foundry tracing and Application Insights to attribute latency, token usage, failures, retries, retrieval, and tool calls to individual operations. Use Foundry monitoring for operational trends and Azure Cost Management for authoritative billed spend. Connect technical signals to business value and evaluation outcomes.",
+    "source": "Foundry Agent Optimization Demo"
+  }
+]
