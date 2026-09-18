@@ -6,8 +6,8 @@ async function main() {
   for (const relativePath of requiredAzureFiles) await access(path.join(process.cwd(), relativePath));
   const azureYaml = await readFile(path.join(process.cwd(), "azure.yaml"), "utf8");
   const parameters = JSON.parse(await readFile(path.join(process.cwd(), "infra", "main.parameters.json"), "utf8")) as { parameters?: Record<string, unknown> };
-  if (!azureYaml.includes("host: appservice") || !azureYaml.includes("provider: bicep")) {
-    throw new Error("azure.yaml must declare Bicep infrastructure and the optional App Service companion.");
+  if (!azureYaml.includes("provider: bicep") || azureYaml.includes("host: appservice")) {
+    throw new Error("azure.yaml must declare Foundry Bicep infrastructure without an application service.");
   }
   for (const parameter of ["environmentName", "location", "searchLocation", "principalId", "deployModelRouter", "deployFoundryIQ"]) {
     if (!parameters.parameters?.[parameter]) throw new Error(`main.parameters.json is missing ${parameter}.`);

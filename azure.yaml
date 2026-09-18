@@ -6,12 +6,6 @@ infra:
   provider: bicep
   path: infra
   module: main
-services:
-  web:
-    project: .
-    language: js
-    host: appservice
-    resourceName: ${AZURE_WEB_APP_NAME}
 hooks:
   preprovision:
     shell: pwsh
