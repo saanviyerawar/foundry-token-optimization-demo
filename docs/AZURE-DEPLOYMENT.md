@@ -2,7 +2,7 @@
 
 ## Deployment outcome
 
-The default `azd up` creates a tenant-owned Foundry environment and deploys the Next.js demo to App Service. The application uses Microsoft Entra ID and its system-assigned managed identity to call the Foundry project Responses API.
+The default deployment creates a tenant-owned Foundry environment and a runnable prompt agent for the Microsoft Foundry agent playground. The Next.js companion application is optional.
 
 ### Automated resources
 
@@ -17,7 +17,7 @@ The default `azd up` creates a tenant-owned Foundry environment and deploys the 
 | Model router | Off | Preview management API; explicit opt-in |
 | Log Analytics | On | 30-day retention |
 | Application Insights | On | Connected to Foundry account and project |
-| App Service B1 | On | Set `DEPLOY_WEB_APP=false` to omit |
+| App Service B1 | Off | Supply `-DeployCompanionApp` or set `DEPLOY_WEB_APP=true` |
 | Prompt agent | On | Created or updated by post-provision hook |
 
 ## Prerequisites and roles
@@ -45,24 +45,36 @@ npm install
 npm run azure:deploy -- -EnvironmentName demo -Location eastus2
 ```
 
-Or use azd directly:
+This provisions the directly runnable Foundry portal demo without App Service.
+
+Or provision the portal-first experience directly:
 
 ```powershell
 azd auth login
 azd env new demo --location eastus2
-azd up
+azd provision
 ```
+
+After provisioning, open `https://ai.azure.com`, select the `FOUNDRY_PROJECT_NAME` printed by the deployment, and run `foundry-optimization-agent` in the agent playground.
+
+To deploy the optional companion application:
+
+```powershell
+npm run azure:deploy:companion -- -EnvironmentName demo -Location eastus2
+```
+
+Both commands create or update the same Foundry project, model deployments, prompt agent, and monitoring connection. The companion command additionally provisions and deploys App Service.
 
 The pre-provision hook sets safe defaults:
 
-- `DEPLOY_WEB_APP=true`
+- `DEPLOY_WEB_APP=false`
 - `ALLOW_API_KEY_AUTH=false`
 - `CONNECT_APPLICATION_INSIGHTS=true`
 - `DEPLOY_MODEL_ROUTER=false`
 - `APP_SERVICE_SKU=B1`
 - `MODEL_ROUTER_CAPACITY=10`
 
-Use `azd env set <name> <value>` before `azd up` to change these.
+Use `azd env set <name> <value>` before `azd provision`, or before `azd up` when deploying the companion app, to change these.
 
 ## Regional model and quota customization
 
@@ -109,14 +121,14 @@ The fallback uses an idempotent management-plane `PUT`. Confirm preview acceptan
 
 The post-provision hook creates or updates `foundry-optimization-agent` through `@azure/ai-projects` and `DefaultAzureCredential`.
 
-Default deployed app behavior:
+Default local or optionally deployed companion behavior:
 
 ```text
 AI_PROVIDER=foundry
-FOUNDRY_USE_AGENT=false
+FOUNDRY_USE_AGENT=true
 ```
 
-This calls the selected direct deployment and preserves the routing demonstration. To route all requests through the created prompt agent, set `FOUNDRY_USE_AGENT=true` in App Service configuration or `.env.local`.
+This routes requests through the prompt agent created in Foundry. Set `FOUNDRY_USE_AGENT=false` only when intentionally demonstrating direct deployment routing from the companion app.
 
 If the presenter role was not assigned because `AZURE_PRINCIPAL_ID` was unavailable:
 
@@ -151,12 +163,15 @@ Safeguards:
 ## Inspect real traces and spend
 
 1. Open the Foundry project at `https://ai.azure.com`.
-2. Open **Agents → Traces**. Server-side tracing is enabled by the Application Insights project connection.
-3. Search by the trace ID shown in the routing result or load-generator output.
-4. Open the Application Insights resource for transaction search, failures, performance, and Logs.
-5. Use Azure Cost Management for authoritative spend. The app’s cost cards are illustrative estimates, not billing records.
+2. Open `foundry-optimization-agent` and run a baseline prompt in the portal playground.
+3. Open the agent or project trace view. Server-side tracing is enabled by the Application Insights project connection.
+4. Search by the trace ID shown in the routing result or load-generator output.
+5. Open the Foundry monitoring experience and the Application Insights resource for request, failure, performance, and log analysis.
+6. Use Azure Cost Management for authoritative spend. The app’s cost cards are illustrative estimates, not billing records.
 
 Trace ingestion can contain prompts, outputs, and tool arguments. Do not send secrets or sensitive production data through this demo.
+
+The canonical presentation is portal-first. Follow [`FOUNDRY-PORTAL-WALKTHROUGH.md`](FOUNDRY-PORTAL-WALKTHROUGH.md); use the deployed application as a workload generator and supporting visualization surface.
 
 ## Manual and optional services
 

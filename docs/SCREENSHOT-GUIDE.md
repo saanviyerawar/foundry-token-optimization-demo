@@ -1,6 +1,10 @@
 # Screenshot Capture Guide
 
-Run `npm run reset`, then use a 1600×1000 browser viewport and append `?clawpilotTheme=dark` to every URL. Keep the left navigation visible. The source slides are structural references; publish screenshots of this repository rather than portal captures containing tenant or resource details.
+The live demo is portal-first. Do not use these application screenshots as a substitute for opening the deployed Foundry project during the presentation.
+
+Run `npm run reset`, then use a 1600x1000 browser viewport and append `?clawpilotTheme=dark` to every URL. Keep the left navigation visible. These captures document the companion application and provide an offline fallback.
+
+Do not commit Foundry portal screenshots containing tenant, subscription, resource, trace, prompt, or identity details. Capture sanitized portal images separately only when the presentation requires them.
 
 ## Repository screenshots
 
@@ -14,11 +18,11 @@ Run `npm run reset`, then use a 1600×1000 browser viewport and append `?clawpil
 | `docs/images/traces.png` | `/traces` | Select a nested span |
 | `docs/images/telemetry.png` | `/telemetry` | Generate **25 requests** |
 
-## Full storyline capture sequence
+## Companion capture sequence
 
 | # | Page | Required state/action | Expected visual |
 |---|---|---|---|
-| 1 | `/` | Fresh seeded state; no action | Tokenomics, ROI equation, evaluation-driven development, and five-principle overview |
+| 1 | `/` | Fresh seeded state; no action | Portal-first handoff, ROI equation, evaluation-driven development, and five-principle overview |
 | 2 | `/evaluations` | Fresh reset configuration | Evaluation builder, mapped dataset fields, grouped evaluator families, and threshold |
 | 3 | `/evaluations` | Run threshold 3.7 | Aggregate ribbon and pass/fail dataset table |
 | 4 | `/route-requests` | Submit default prompt with Balanced priority | Model-routing comparison, rationale, pass gate, and monitor signals |

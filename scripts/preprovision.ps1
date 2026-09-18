@@ -8,7 +8,7 @@ function Set-DefaultAzdValue {
     }
 }
 
-Set-DefaultAzdValue "DEPLOY_WEB_APP" "true"
+Set-DefaultAzdValue "DEPLOY_WEB_APP" "false"
 Set-DefaultAzdValue "ALLOW_API_KEY_AUTH" "false"
 Set-DefaultAzdValue "CONNECT_APPLICATION_INSIGHTS" "true"
 Set-DefaultAzdValue "DEPLOY_MODEL_ROUTER" "false"

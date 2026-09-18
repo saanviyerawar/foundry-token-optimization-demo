@@ -242,7 +242,7 @@ resource webApp 'Microsoft.Web/sites@2023-12-01' = if (deployWebApp) {
         }
         {
           name: 'FOUNDRY_USE_AGENT'
-          value: 'false'
+          value: 'true'
         }
         {
           name: 'MODEL_DEPLOYMENT_GPT_5_NANO'

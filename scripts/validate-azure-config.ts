@@ -7,7 +7,7 @@ async function main() {
   const azureYaml = await readFile(path.join(process.cwd(), "azure.yaml"), "utf8");
   const parameters = JSON.parse(await readFile(path.join(process.cwd(), "infra", "main.parameters.json"), "utf8")) as { parameters?: Record<string, unknown> };
   if (!azureYaml.includes("host: appservice") || !azureYaml.includes("provider: bicep")) {
-    throw new Error("azure.yaml must declare an App Service and Bicep infrastructure.");
+    throw new Error("azure.yaml must declare Bicep infrastructure and the optional App Service companion.");
   }
   for (const parameter of ["environmentName", "location", "principalId", "deployModelRouter"]) {
     if (!parameters.parameters?.[parameter]) throw new Error(`main.parameters.json is missing ${parameter}.`);

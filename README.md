@@ -1,32 +1,34 @@
-# Foundry Agent Optimization Demo
+# Portal-first Foundry Agent Optimization Demo
 
-A deployable Microsoft Foundry demonstration for model routing, MCP/toolbox compression, grounded retrieval, caching, tracing, telemetry, and evaluation-driven development.
+A portal-first Microsoft Foundry walkthrough for model routing, MCP/toolbox compression, grounded retrieval, caching, tracing, telemetry, and evaluation-driven development.
+
+The live presentation starts in the Microsoft Foundry portal. The included Next.js application is a companion workload generator and visualization surface: it creates repeatable requests, exposes optimization comparisons, and provides a deterministic fallback when tenant access or conference connectivity is unavailable.
 
 The repository supports two modes:
 
-- **Mock mode:** local, deterministic, no Azure resources or credentials.
-- **Foundry mode:** tenant-owned Foundry resource and project, real model deployments, a real prompt agent, Application Insights, Log Analytics, managed identity, and an optional Azure App Service deployment.
+- **Direct Foundry demo:** tenant-owned Foundry resource and project, real model deployments, a runnable prompt agent, Application Insights, Log Analytics, and managed identity. Present and run the agent in the Foundry portal.
+- **Foundry + companion app demo:** the same Foundry deployment plus a local or App Service-hosted workload generator and visualization surface.
+- **Mock fallback:** local and deterministic, with no Azure resources or credentials.
 
 ![Foundry Agent Optimization Demo storyline](docs/images/storyline.png)
 
-## Canonical slide storyline
+## Canonical portal-first storyline
 
-Use this order for every city and presenter. The live app replaces static portal screenshots while preserving the source presentation's narrative.
+Use this order for every city and presenter. Keep the Foundry project open as the primary screen and move to the companion app only when the walkthrough needs to generate traffic or make an optimization comparison visible.
 
-| Stage | Core message | Live demonstration |
+| Stage | Foundry portal walkthrough | Companion app role |
 |---|---|---|
-| **Tokenomics** | Tokens are a variable input cost, not the business outcome. Measure input, output, cached, and retrieved context tokens. | Start on `/` and frame tokens alongside latency, tools, retrieval, evaluation, and operations. |
-| **Business ROI** | **ROI = business process value − solution costs.** Value includes time saved, faster cycle time, avoided rework, and conversion; costs include the complete agent solution. | Use the three opening cards to separate value, cost, and evidence. |
-| **Evaluation-driven development** | Define quality, task, tool, and safety gates before optimizing. A cheaper run is not an improvement if it fails the gate. | Open `/evaluations`, review the mapped dataset and evaluators, set `3.7`, then select **Review and run**. |
-| **1. Model routing** | Route each request to the smallest model that satisfies evaluated cost, latency, quality, and capacity requirements. | Open `/route-requests`, submit the default balanced request, then compare it with a low-latency classification request. |
-| **2. Optimize/compress context** | Avoid injecting every MCP schema. Use toolboxes and progressive disclosure; keep skills or specialized instructions outside the always-on prompt where supported. | Open `/toolboxes` and compare individual definitions with the CRM toolbox. |
-| **3. Retrieval** | Externalize business facts and retrieve only the relevant chunks. Foundry IQ is the production extension; the app exposes a transparent local retrieval teaching aid. | Open `/knowledge`, inspect the configured sources, run the default query, and show injected chunks and citations. |
-| **4. Caching** | Prompt-prefix caching avoids recomputing stable prefixes. APIM plus Azure Managed Redis can cache equivalent responses and avoid inference. | Open `/telemetry`, scroll to the cache comparison, and contrast no cache, prefix cache, and response/semantic cache. |
-| **5. Simplify** | Keep durable behavior in the system prompt, capabilities in toolboxes/skills, and facts in retrieval. Smaller, clearer context is easier to evaluate. | Return to the lower section of `/toolboxes` and compare the bloated and concise prompts. |
-| **Telemetry** | Optimization must be observable end to end. | Generate controlled load and inspect request, token, latency, error, and cache signals. |
-| **Foundry agent tracing** | Attribute time and tokens to orchestration, retrieval, model, and tool spans. | Open `/traces`, select nested spans, and correlate a real-mode trace ID with Foundry/Application Insights. |
-| **Foundry spend metrics** | Use Foundry/Azure Cost Management for authoritative spend; use the app's estimate for the live optimization narrative. | Open `/telemetry` and explain total requests, input/output tokens, estimated cost, model mix, and accumulated cost. |
-| **Wrap-up** | **Evaluate → route → compress → retrieve → cache → simplify → observe → repeat.** Tie technical savings back to process value. | Return to `/` and close on the operating loop. |
+| **Project orientation** | Open the deployed Foundry project and identify the project endpoint, connected Application Insights resource, and managed identity. | Keep `/` available as the business ROI and optimization-loop visual. |
+| **Models and deployments** | Open the model deployment list and compare the deployed `gpt-5-mini`, `gpt-5-nano`, and `gpt-4.1-mini` capacity available to the agent. | Use `/route-requests` later to generate requests with different cost, latency, and quality priorities. |
+| **Agent configuration** | Open `foundry-optimization-agent`, review its model, instructions, and available tools, then run a baseline prompt in the portal playground. | Use the app only to show before/after context and routing comparisons that are difficult to explain from one portal run. |
+| **Evaluation gate** | Create or open an evaluation in Foundry, map the dataset, select quality, task, tool, and safety evaluators, and establish the release threshold before optimizing. | `/evaluations` is the deterministic rehearsal and offline fallback for the same gate. |
+| **Generate optimized traffic** | Keep the portal open while submitting controlled real requests through the deployed app or load script. | `/route-requests` and `npm run azure:load -- --execute` generate repeatable tenant traffic. |
+| **Tracing** | Open the agent's traces in Foundry, locate a generated trace ID, and inspect orchestration, model, retrieval, and tool spans. | `/traces` explains the span anatomy and remains the no-network fallback. |
+| **Monitoring and spend** | Review Foundry/Application Insights monitoring for request volume, latency, failures, and token usage; use Azure Cost Management for authoritative spend. | `/telemetry` provides an immediate optimization comparison using illustrative cost estimates. |
+| **Context, retrieval, and caching** | Relate the observed signals back to prompt instructions, tools, knowledge, and production caching architecture. Configure tenant features in Foundry when available. | `/toolboxes`, `/knowledge`, and `/telemetry` make token and context trade-offs visible; they do not claim to provision Foundry IQ or APIM/Redis. |
+| **Close the loop** | Return to the Foundry evaluation and monitoring views: **evaluate → change → generate traffic → trace → monitor → evaluate again**. | Use `/` only as the closing summary visual. |
+
+See [`docs/FOUNDRY-PORTAL-WALKTHROUGH.md`](docs/FOUNDRY-PORTAL-WALKTHROUGH.md) for the detailed portal navigation and [`docs/DEMO-RUNBOOK.md`](docs/DEMO-RUNBOOK.md) for the timed presenter script.
 
 ## Quick setup: local rehearsal
 
@@ -40,13 +42,13 @@ npm run dev
 
 Open `http://localhost:3000?clawpilotTheme=dark`.
 
-This deterministic mode is the recommended presenter rehearsal and fallback. It requires no cloud resources and still supports every live interaction in the storyline.
+This deterministic mode is the recommended rehearsal and fallback. It demonstrates the optimization concepts, but it is not the canonical portal-first presentation.
 
-## Setup: deploy to a presenter's Azure tenant
+## Choose a deployment path
 
-> **Cost warning:** the deployment creates billable model capacity, Application Insights/Log Analytics, and by default a B1 App Service plan. Confirm regional model availability, quota, policy, and pricing before deployment.
+> **Cost warning:** the deployment creates billable model capacity and Application Insights/Log Analytics. App Service is optional. Confirm regional model availability, quota, policy, and pricing before deployment.
 
-### 1. Prerequisites
+### Prerequisites
 
 - Node.js 22+
 - Azure CLI
@@ -62,7 +64,7 @@ az login
 az account show --query "{subscription:name, tenant:tenantId}" --output table
 ```
 
-### 2. Clone and deploy
+### Option A: direct Foundry portal demo
 
 ```powershell
 git clone https://github.com/saanviyerawar/foundry-token-optimization-demo.git
@@ -71,47 +73,53 @@ npm install
 npm run azure:deploy -- -EnvironmentName demo -Location eastus2
 ```
 
-The wrapper authenticates with `azd`, creates/selects the environment, runs `azd up`, creates or updates the demo prompt agent, and writes non-secret local settings to `.env.local`.
+The wrapper authenticates with `azd`, creates/selects the environment, provisions the Foundry project and model deployments, creates or updates `foundry-optimization-agent`, writes non-secret local settings to `.env.local`, and prints the Foundry portal handoff. The default command does not deploy App Service.
 
-Equivalent direct `azd` path:
+Equivalent direct portal-first path:
 
 ```powershell
 azd auth login
 azd env new demo --location eastus2
-azd up
+azd provision
 ```
 
-### 3. Rehearse against the deployed tenant
+After provisioning, open `https://ai.azure.com`, select the printed project name, open `foundry-optimization-agent`, and run it in the agent playground.
+
+### Option B: Foundry plus hosted companion app
+
+Provision the same runnable Foundry demo and deploy the companion to App Service:
 
 ```powershell
-# Run locally against your tenant
+npm run azure:deploy:companion -- -EnvironmentName demo -Location eastus2
+```
+
+### Option C: Foundry plus local companion app
+
+Start with Option A, then run the companion locally against the deployed Foundry agent:
+
+```powershell
 npm run azure:env
 npm run reset
 npm run dev
-
-# Preview safe real-load settings without making billable calls
-npm run azure:load -- --count 5
-
-# Explicitly generate real traffic, capped at 50 requests and concurrency 3
-npm run azure:load -- --count 10 --rate 1 --concurrency 2 --execute
 ```
 
-Open `http://localhost:3000?clawpilotTheme=dark`, or use `azd env get-value AZURE_WEB_APP_URI` to open the deployed App Service.
+Open the Foundry portal as the primary presentation window. Open `http://localhost:3000?clawpilotTheme=dark`, or the optional `AZURE_WEB_APP_URI`, in a second window only for controlled workload generation and supporting visuals.
 
-### 4. Pre-demo checks
+### Pre-demo checks
 
-1. Open every route once and confirm the seeded data renders.
-2. Run the evaluation and record the baseline result.
-3. Submit one real routed request and copy its trace ID.
-4. Confirm the trace appears in Foundry or Application Insights; ingestion can take several minutes.
-5. Run only the controlled load needed for visible spend/telemetry.
-6. Keep mock mode ready as the no-network fallback.
+1. Open the Foundry project and confirm the model deployments, prompt agent, and Application Insights connection.
+2. Run a baseline prompt from the agent playground.
+3. Prepare or verify the Foundry evaluation and record its baseline result.
+4. Submit one real routed request from the companion app and copy its trace ID.
+5. Confirm the trace appears in Foundry or Application Insights; ingestion can take several minutes.
+6. Run only the controlled load needed for visible monitoring signals.
+7. Open every companion route once and keep mock mode ready as the no-network fallback.
 
 See [`docs/AZURE-DEPLOYMENT.md`](docs/AZURE-DEPLOYMENT.md) for tenant roles, model customization, validation, traces, troubleshooting, optional model router, and teardown.
 
-## Demo screen references
+## Companion app screen references
 
-These are screenshots of this repository's original interface. The supplied source slides informed the information hierarchy and sequence; raw portal screenshots are not redistributed because they contain tenant/resource details.
+These screenshots document the supporting application, not the primary presentation path. Portal screenshots are intentionally not committed because they commonly contain tenant, subscription, resource, trace, or prompt details.
 
 ### Tokenomics, ROI, and evaluation-driven development
 
@@ -145,7 +153,7 @@ The lower section of the live page compares a bloated system prompt with a conci
 
 ![Request, token, cost, cache, and latency telemetry](docs/images/telemetry.png)
 
-## What `azd up` automates
+## What the default deployment automates
 
 - Resource group
 - `Microsoft.CognitiveServices/accounts` with `kind: AIServices`
@@ -154,7 +162,8 @@ The lower section of the live page compares a bloated system prompt with a conci
 - Log Analytics workspace and workspace-based Application Insights
 - Foundry account/project Application Insights connections for agent tracing
 - Foundry User role assignments for the project identity, presenter identity when available, and web-app identity
-- Linux App Service and plan, unless disabled
+- Runnable `foundry-optimization-agent` for the Foundry agent playground
+- Optional Linux App Service and plan when `-DeployCompanionApp` is supplied
 - Real runtime settings using managed identity and the Foundry project endpoint
 - Idempotent prompt-agent creation/update
 
@@ -191,7 +200,7 @@ azd + Bicep
   ├─ Optional preview model router
   ├─ Application Insights + Log Analytics + project connections
   ├─ Least-scope Foundry/monitoring RBAC
-  └─ Optional App Service deployment
+  └─ Optional App Service deployment, disabled by default
 ```
 
 Important paths:
@@ -204,6 +213,7 @@ Important paths:
 - `lib/provider.ts`: real/mock provider abstraction.
 - `lib/azure-monitor.ts`: server-only, lazy Azure Monitor OpenTelemetry initialization before real calls.
 - `docs/DEMO-RUNBOOK.md`: presenter sequence.
+- `docs/FOUNDRY-PORTAL-WALKTHROUGH.md`: canonical portal navigation and handoffs to the companion app.
 - `docs/SCREENSHOT-GUIDE.md`: reproducible visual states.
 
 ## Validation

@@ -12,6 +12,7 @@
     "reset": "tsx scripts/reset.ts",
     "load": "tsx scripts/load.ts",
     "azure:deploy": "pwsh -NoProfile -File scripts/deploy.ps1",
+    "azure:deploy:companion": "pwsh -NoProfile -File scripts/deploy.ps1 -DeployCompanionApp",
     "azure:agent": "tsx scripts/create-agent.ts",
     "azure:load": "tsx scripts/load-real.ts",
     "azure:env": "pwsh -NoProfile -File scripts/export-azure-env.ps1",

@@ -11,6 +11,7 @@ function Get-AzdValue {
 
 $env:FOUNDRY_PROJECT_ENDPOINT = Get-AzdValue "FOUNDRY_PROJECT_ENDPOINT"
 $env:FOUNDRY_AGENT_NAME = Get-AzdValue "FOUNDRY_AGENT_NAME"
+$env:FOUNDRY_PROJECT_NAME = Get-AzdValue "FOUNDRY_PROJECT_NAME"
 $env:MODEL_DEPLOYMENT_GPT_5_MINI = "gpt-5-mini"
 
 Write-Host "Waiting briefly for Foundry RBAC propagation..."
@@ -35,3 +36,4 @@ if (-not $created) {
 
 & $PSScriptRoot\export-azure-env.ps1
 Write-Host "Post-provision setup complete."
+Write-Host "Open https://ai.azure.com, select project $env:FOUNDRY_PROJECT_NAME, and run $env:FOUNDRY_AGENT_NAME in the agent playground."

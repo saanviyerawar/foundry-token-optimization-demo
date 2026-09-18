@@ -3,6 +3,7 @@ param(
     [string]$Location = "eastus2",
     [string]$SubscriptionId = "",
     [switch]$DeployModelRouter,
+    [switch]$DeployCompanionApp,
     [switch]$SkipWebApp,
     [switch]$AllowApiKeyAuth
 )
@@ -10,7 +11,9 @@ param(
 $ErrorActionPreference = "Stop"
 
 if (-not (Get-Command azd -ErrorAction SilentlyContinue)) { throw "Azure Developer CLI (azd) is required." }
-if (-not (Get-Command az -ErrorAction SilentlyContinue)) { throw "Azure CLI is required for post-deploy App Service configuration and optional model-router fallback." }
+if ($DeployCompanionApp.IsPresent -and $SkipWebApp.IsPresent) {
+    throw "Choose either -DeployCompanionApp or -SkipWebApp, not both."
+}
 
 Write-Warning "This deployment creates billable Azure resources and model capacity. Review infra/main.bicep and regional quota before continuing."
 
@@ -27,10 +30,23 @@ if ($LASTEXITCODE -ne 0) {
 
 & azd env set AZURE_LOCATION $Location | Out-Null
 & azd env set DEPLOY_MODEL_ROUTER ($DeployModelRouter.IsPresent.ToString().ToLowerInvariant()) | Out-Null
-& azd env set DEPLOY_WEB_APP ((-not $SkipWebApp.IsPresent).ToString().ToLowerInvariant()) | Out-Null
+& azd env set DEPLOY_WEB_APP ($DeployCompanionApp.IsPresent.ToString().ToLowerInvariant()) | Out-Null
 & azd env set ALLOW_API_KEY_AUTH ($AllowApiKeyAuth.IsPresent.ToString().ToLowerInvariant()) | Out-Null
 
-& azd up
-if ($LASTEXITCODE -ne 0) { throw "azd up failed." }
+if ($DeployCompanionApp.IsPresent) {
+    & azd up
+    if ($LASTEXITCODE -ne 0) { throw "azd up failed." }
+} else {
+    & azd provision
+    if ($LASTEXITCODE -ne 0) { throw "azd provision failed." }
+}
 
-Write-Host "Deployment complete. Run npm run azure:env, then use .env.azure.local for local real mode."
+Write-Host ""
+Write-Host "Foundry demo deployment complete."
+Write-Host "Open https://ai.azure.com and select the project named:"
+& azd env get-value FOUNDRY_PROJECT_NAME
+Write-Host "Then open foundry-optimization-agent in the agent playground."
+if ($DeployCompanionApp.IsPresent) {
+    Write-Host "The optional companion app URI is:"
+    & azd env get-value AZURE_WEB_APP_URI
+}

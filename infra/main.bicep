@@ -12,8 +12,8 @@ param tags object = {
   solution: 'foundry-agent-optimization-demo'
 }
 
-@description('Set false to provision Foundry without the demo web app and App Service cost.')
-param deployWebApp bool = true
+@description('Optionally deploy the companion web app. The default experience runs directly in Microsoft Foundry.')
+param deployWebApp bool = false
 
 @description('App Service plan SKU. B1 is practical for demos; choose a different SKU to match tenant policy.')
 param appServiceSku string = 'B1'
