@@ -83,6 +83,7 @@ resource foundryProject 'Microsoft.CognitiveServices/accounts/projects@2025-06-0
   }
 }
 
+@batchSize(1)
 resource directModelDeployments 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = [for deployment in modelDeployments: if (deployment.enabled) {
   name: deployment.deploymentName
   parent: foundryAccount

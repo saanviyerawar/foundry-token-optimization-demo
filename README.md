@@ -50,7 +50,7 @@ This deterministic mode is the recommended rehearsal and fallback. It demonstrat
 
 ### Prerequisites
 
-- Node.js 22+
+- Node.js 22 LTS (the repository includes `.nvmrc`)
 - Azure CLI
 - Azure Developer CLI (`azd`) 1.29+
 - An Azure subscription where you can create resource groups and role assignments. Owner is simplest for a demo; Contributor alone cannot create RBAC assignments.
@@ -59,7 +59,6 @@ This deterministic mode is the recommended rehearsal and fallback. It demonstrat
 Confirm the intended tenant and subscription before creating anything:
 
 ```powershell
-azd auth login
 az login
 az account show --query "{subscription:name, tenant:tenantId}" --output table
 ```
@@ -73,13 +72,14 @@ npm install
 npm run azure:deploy -- -EnvironmentName demo -Location eastus2
 ```
 
-The wrapper authenticates with `azd`, creates/selects the environment, provisions the Foundry project and model deployments, creates or updates `foundry-optimization-agent`, writes non-secret local settings to `.env.local`, and prints the Foundry portal handoff. The default command does not deploy App Service.
+The wrapper uses the active Azure CLI subscription, authenticates `azd` to the same tenant, checks the required deployment and RBAC permissions, and binds the selected subscription even when the `azd` environment already exists. Pass `-SubscriptionId <id>` to override the active subscription explicitly. It then provisions the Foundry project and model deployments, creates or updates `foundry-optimization-agent`, writes non-secret local settings to `.env.local`, and prints the Foundry portal handoff. The default command does not deploy App Service.
 
 Equivalent direct portal-first path:
 
 ```powershell
-azd auth login
-azd env new demo --location eastus2
+az login
+azd auth login --tenant-id (az account show --query tenantId --output tsv)
+azd env new demo --location eastus2 --subscription (az account show --query id --output tsv)
 azd provision
 ```
 
