@@ -21,6 +21,8 @@
     "azure:env": "pwsh -NoProfile -File scripts/export-azure-env.ps1",
     "azure:role": "pwsh -NoProfile -File scripts/assign-presenter-role.ps1",
     "azure:router": "pwsh -NoProfile -File scripts/deploy-model-router.ps1",
+    "azure:portal-assets": "pwsh -NoProfile -File scripts/setup-portal-demo.ps1",
+    "azure:portal-assets:apply": "tsx scripts/setup-portal-demo.ts",
     "azure:validate": "tsx scripts/validate-azure-config.ts",
     "azure:down": "pwsh -NoProfile -File scripts/teardown.ps1"
   },

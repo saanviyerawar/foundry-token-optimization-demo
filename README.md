@@ -1,12 +1,12 @@
 # Portal-first Foundry Agent Optimization Demo
 
-A portal-first Microsoft Foundry walkthrough for model routing, MCP/toolbox compression, grounded retrieval, caching, tracing, telemetry, and evaluation-driven development.
+A portal-first Microsoft Foundry walkthrough that uses a YouTube learning bot to demonstrate model routing, toolbox compression, grounded retrieval, caching, tracing, telemetry, and evaluation-driven development. The bot turns transcript text into key points, a study guide, and flashcards.
 
-The live presentation starts in the Microsoft Foundry portal. The included Next.js application is a companion workload generator and visualization surface: it creates repeatable requests, exposes optimization comparisons, and provides a deterministic fallback when tenant access or conference connectivity is unavailable.
+The live presentation stays in the Microsoft Foundry portal. The default deployment seeds the project with models, agents, evaluations, a toolbox, Foundry IQ knowledge, traces, and monitoring connections. The included Next.js application remains an optional rehearsal and fallback surface.
 
 The repository supports two modes:
 
-- **Direct Foundry demo:** tenant-owned Foundry resource and project, real model deployments, a runnable prompt agent, Application Insights, Log Analytics, and managed identity. Present and run the agent in the Foundry portal.
+- **Direct Foundry demo:** tenant-owned Foundry resource and project, direct models plus Model Router, four runnable agents, completed evaluation runs, a toolbox, Foundry IQ knowledge backed by Azure AI Search, trace-generating requests, Application Insights, Log Analytics, and managed identity.
 - **Foundry + companion app demo:** the same Foundry deployment plus a local or App Service-hosted workload generator and visualization surface.
 - **Mock fallback:** local and deterministic, with no Azure resources or credentials.
 
@@ -14,18 +14,18 @@ The repository supports two modes:
 
 ## Canonical portal-first storyline
 
-Use this order for every city and presenter. Keep the Foundry project open as the primary screen and move to the companion app only when the walkthrough needs to generate traffic or make an optimization comparison visible.
+Use this order for every city and presenter. Keep the Foundry project open throughout; the deployment has already created the assets and traffic needed for the walkthrough.
 
 | Stage | Foundry portal walkthrough | Companion app role |
 |---|---|---|
 | **Project orientation** | Open the deployed Foundry project and identify the project endpoint, connected Application Insights resource, and managed identity. | Keep `/` available as the business ROI and optimization-loop visual. |
-| **Models and deployments** | Open the model deployment list and compare the deployed `gpt-5-mini`, `gpt-5-nano`, and `gpt-4.1-mini` capacity available to the agent. | Use `/route-requests` later to generate requests with different cost, latency, and quality priorities. |
-| **Agent configuration** | Open `foundry-optimization-agent`, review its model, instructions, and available tools, then run a baseline prompt in the portal playground. | Use the app only to show before/after context and routing comparisons that are difficult to explain from one portal run. |
-| **Evaluation gate** | Create or open an evaluation in Foundry, map the dataset, select quality, task, tool, and safety evaluators, and establish the release threshold before optimizing. | `/evaluations` is the deterministic rehearsal and offline fallback for the same gate. |
-| **Generate optimized traffic** | Keep the portal open while submitting controlled real requests through the deployed app or load script. | `/route-requests` and `npm run azure:load -- --execute` generate repeatable tenant traffic. |
-| **Tracing** | Open the agent's traces in Foundry, locate a generated trace ID, and inspect orchestration, model, retrieval, and tool spans. | `/traces` explains the span anatomy and remains the no-network fallback. |
+| **Models and deployments** | Compare `gpt-5-mini`, `gpt-5-nano`, `gpt-4.1-mini`, and `model-router`. | Optional fallback only. |
+| **Agent configuration** | Compare the baseline, nano, router, and knowledge agents, then run one in the playground. | Optional fallback only. |
+| **Evaluation gate** | Open the seeded baseline, nano, and router evaluations and compare completed runs. | `/evaluations` is the offline fallback. |
+| **Context and retrieval** | Open Toolboxes and Foundry IQ Knowledge to show progressive tool disclosure and grounded retrieval. | `/toolboxes` and `/knowledge` are offline fallbacks. |
+| **Tracing** | Open the trace view and inspect the seeded agent requests. | `/traces` explains span anatomy if ingestion is delayed. |
 | **Monitoring and spend** | Review Foundry/Application Insights monitoring for request volume, latency, failures, and token usage; use Azure Cost Management for authoritative spend. | `/telemetry` provides an immediate optimization comparison using illustrative cost estimates. |
-| **Context, retrieval, and caching** | Relate the observed signals back to prompt instructions, tools, knowledge, and production caching architecture. Configure tenant features in Foundry when available. | `/toolboxes`, `/knowledge`, and `/telemetry` make token and context trade-offs visible; they do not claim to provision Foundry IQ or APIM/Redis. |
+| **Caching and simplification** | Use token and latency signals to explain prompt caching, response caching, and removing unnecessary context or orchestration. | `/telemetry` remains a fallback comparison; APIM/Redis response caching is not provisioned. |
 | **Close the loop** | Return to the Foundry evaluation and monitoring views: **evaluate → change → generate traffic → trace → monitor → evaluate again**. | Use `/` only as the closing summary visual. |
 
 See [`docs/FOUNDRY-PORTAL-WALKTHROUGH.md`](docs/FOUNDRY-PORTAL-WALKTHROUGH.md) for the detailed portal navigation and [`docs/DEMO-RUNBOOK.md`](docs/DEMO-RUNBOOK.md) for the timed presenter script.
@@ -46,7 +46,7 @@ This deterministic mode is the recommended rehearsal and fallback. It demonstrat
 
 ## Choose a deployment path
 
-> **Cost warning:** the deployment creates billable model capacity and Application Insights/Log Analytics. App Service is optional. Confirm regional model availability, quota, policy, and pricing before deployment.
+> **Cost warning:** the deployment creates billable model capacity, Model Router, Azure AI Search Basic, Application Insights, and Log Analytics, then makes real model/evaluation calls. App Service is optional. Confirm regional availability, quota, policy, and pricing before deployment.
 
 ### Prerequisites
 
@@ -72,7 +72,7 @@ npm install
 npm run azure:deploy -- -EnvironmentName demo -Location eastus2
 ```
 
-The wrapper uses the active Azure CLI subscription, authenticates `azd` to the same tenant, checks the required deployment and RBAC permissions, and binds the selected subscription even when the `azd` environment already exists. Pass `-SubscriptionId <id>` to override the active subscription explicitly. It then provisions the Foundry project and model deployments, creates or updates `foundry-optimization-agent`, writes non-secret local settings to `.env.local`, and prints the Foundry portal handoff. The default command does not deploy App Service.
+The wrapper uses the active Azure CLI subscription, authenticates `azd` to the same tenant, checks deployment and RBAC permissions, and binds the selected subscription. It provisions the complete portal demo, seeds its assets and data, writes non-secret local settings to `.env.local`, and prints the Foundry portal handoff. Pass `-SkipPortalDemoAssets` only when you want infrastructure without Model Router, Foundry IQ, toolbox/evaluation seeding, or generated trace traffic. The default command does not deploy App Service.
 
 Equivalent direct portal-first path:
 
@@ -83,7 +83,7 @@ azd env new demo --location eastus2 --subscription (az account show --query id -
 azd provision
 ```
 
-After provisioning, open `https://ai.azure.com`, select the printed project name, open `foundry-optimization-agent`, and run it in the agent playground.
+After provisioning, open `https://ai.azure.com` and select the printed project. The Models, Agents, Evaluations, Toolboxes, Knowledge, Tracing, and Monitoring screens are ready to present.
 
 ### Option B: Foundry plus hosted companion app
 
@@ -107,13 +107,12 @@ Open the Foundry portal as the primary presentation window. Open `http://localho
 
 ### Pre-demo checks
 
-1. Open the Foundry project and confirm the model deployments, prompt agent, and Application Insights connection.
-2. Run a baseline prompt from the agent playground.
-3. Prepare or verify the Foundry evaluation and record its baseline result.
-4. Submit one real routed request from the companion app and copy its trace ID.
-5. Confirm the trace appears in Foundry or Application Insights; ingestion can take several minutes.
-6. Run only the controlled load needed for visible monitoring signals.
-7. Open every companion route once and keep mock mode ready as the no-network fallback.
+1. Confirm four model deployments and the YouTube baseline, nano, router, and knowledge agents.
+2. Confirm `youtube-learning-toolbox` appears under Toolboxes.
+3. Confirm `token-optimization-knowledge` appears under Knowledge and returns grounded records.
+4. Confirm the three evaluation runs completed.
+5. Confirm seeded requests appear in Tracing or Application Insights; ingestion can take several minutes.
+6. Keep mock mode ready only as the no-network fallback.
 
 See [`docs/AZURE-DEPLOYMENT.md`](docs/AZURE-DEPLOYMENT.md) for tenant roles, model customization, validation, traces, troubleshooting, optional model router, and teardown.
 
@@ -159,21 +158,25 @@ The lower section of the live page compares a bloated system prompt with a conci
 - `Microsoft.CognitiveServices/accounts` with `kind: AIServices`
 - Foundry project child resource with managed identity
 - Configurable direct model deployments for `gpt-5-mini`, `gpt-5-nano`, and `gpt-4.1-mini`
+- Preview `model-router` deployment
+- Azure AI Search Basic with indexed token-optimization knowledge
 - Log Analytics workspace and workspace-based Application Insights
 - Foundry account/project Application Insights connections for agent tracing
 - Foundry User role assignments for the project identity, presenter identity when available, and web-app identity
-- Runnable `foundry-optimization-agent` for the Foundry agent playground
+- YouTube baseline, nano, router, and knowledge prompt agents
+- `youtube-learning-toolbox`
+- Foundry IQ knowledge source, knowledge base, and project connection
+- Baseline, nano, and router cloud evaluation runs
+- Controlled requests that populate tracing and monitoring
 - Optional Linux App Service and plan when `-DeployCompanionApp` is supplied
 - Real runtime settings using managed identity and the Foundry project endpoint
 - Idempotent prompt-agent creation/update
 
 ## Deliberately not claimed as automated
 
-- **Foundry IQ knowledge source:** not provisioned. The app’s knowledge lab remains a transparent local BM25-like implementation. Configure Foundry IQ manually if your tenant has access.
 - **APIM semantic caching or Azure Managed Redis:** not provisioned. The cache page demonstrates the economics and behavior; it does not claim a managed semantic cache exists.
 - **Claude deployment:** not provisioned by default because regional availability, marketplace terms, and routing policy vary. The logical `claude-opus-5` route maps to `gpt-5-mini` until you configure an approved deployment.
-- **Model router:** supported through a preview management API and therefore disabled by default. Enable it explicitly or use `npm run azure:router`.
-- **Private networking, CMK, APIM, Redis, and Foundry IQ:** optional production architecture work, not hidden defaults.
+- **Private networking, CMK, APIM, and Redis:** optional production architecture work, not hidden defaults.
 
 ## Runtime provider
 
@@ -197,7 +200,9 @@ Next.js App Router
 azd + Bicep
   ├─ Foundry AIServices account + project
   ├─ Direct model deployments
-  ├─ Optional preview model router
+  ├─ Preview model router
+  ├─ Azure AI Search + Foundry IQ knowledge
+  ├─ Agents, toolbox, evaluations, and seeded traces
   ├─ Application Insights + Log Analytics + project connections
   ├─ Least-scope Foundry/monitoring RBAC
   └─ Optional App Service deployment, disabled by default

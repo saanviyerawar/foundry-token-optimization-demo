@@ -2,7 +2,7 @@
 
 ## Deployment outcome
 
-The default deployment creates a tenant-owned Foundry environment and a runnable prompt agent for the Microsoft Foundry agent playground. The Next.js companion application is optional.
+The default deployment creates a tenant-owned, portal-ready Foundry environment with real models, agents, evaluations, a toolbox, Foundry IQ knowledge, generated traces, and monitoring. The Next.js companion application is optional.
 
 ### Automated resources
 
@@ -14,11 +14,12 @@ The default deployment creates a tenant-owned Foundry environment and a runnable
 | `gpt-5-mini` | On | Configurable deployment array |
 | `gpt-5-nano` | On | Configurable deployment array |
 | `gpt-4.1-mini` | On | Configurable deployment array |
-| Model router | Off | Preview management API; explicit opt-in |
+| Model router | On | Preview management API |
+| Azure AI Search Basic | On | Foundry IQ index and knowledge assets |
 | Log Analytics | On | 30-day retention |
 | Application Insights | On | Connected to Foundry account and project |
 | App Service B1 | Off | Supply `-DeployCompanionApp` or set `DEPLOY_WEB_APP=true` |
-| Prompt agent | On | Created or updated by post-provision hook |
+| Portal assets | On | Four agents, toolbox, knowledge, three evaluation runs, and trace traffic |
 
 ## Prerequisites and roles
 
@@ -46,6 +47,8 @@ npm run azure:deploy -- -EnvironmentName demo -Location eastus2
 ```
 
 This provisions the directly runnable Foundry portal demo without App Service. To target a subscription other than the active Azure CLI subscription, add `-SubscriptionId <id>`.
+If Azure AI Search reports temporary capacity exhaustion in the primary region, keep Foundry in place and add `-SearchLocation <region>` to place only Search in another supported region.
+If the tenant blocks Microsoft Graph directory lookup, supply the deploying user's or service principal's object ID with `-PrincipalId <object-id>`.
 
 Or provision the portal-first experience directly:
 
@@ -55,7 +58,7 @@ azd env new demo --location eastus2 --subscription (az account show --query id -
 azd provision
 ```
 
-After provisioning, open `https://ai.azure.com`, select the `FOUNDRY_PROJECT_NAME` printed by the deployment, and run `foundry-optimization-agent` in the agent playground.
+After provisioning, open `https://ai.azure.com` and select the printed `FOUNDRY_PROJECT_NAME`. The Models, Agents, Evaluations, Toolboxes, Knowledge, Tracing, and Monitoring views contain presentation data.
 
 To deploy the optional companion application:
 
@@ -70,7 +73,9 @@ The pre-provision hook sets safe defaults:
 - `DEPLOY_WEB_APP=false`
 - `ALLOW_API_KEY_AUTH=false`
 - `CONNECT_APPLICATION_INSIGHTS=true`
-- `DEPLOY_MODEL_ROUTER=false`
+- `DEPLOY_MODEL_ROUTER=true`
+- `DEPLOY_FOUNDRY_IQ=true`
+- `DEPLOY_PORTAL_DEMO_ASSETS=true`
 - `APP_SERVICE_SKU=B1`
 - `MODEL_ROUTER_CAPACITY=10`
 
@@ -101,13 +106,7 @@ The repository does not silently deploy or claim Claude capacity.
 
 ## Model router
 
-Model router uses `Microsoft.CognitiveServices/accounts/deployments@2025-10-01-preview`, so it is disabled by default.
-
-Enable during provisioning:
-
-```powershell
-npm run azure:deploy -- -EnvironmentName demo -Location eastus2 -DeployModelRouter
-```
+Model router uses `Microsoft.CognitiveServices/accounts/deployments@2025-10-01-preview` and is enabled by default for this demonstration.
 
 Or deploy it explicitly after `az login`:
 
@@ -115,7 +114,13 @@ Or deploy it explicitly after `az login`:
 npm run azure:router -- -Version 2025-11-18 -Capacity 10
 ```
 
-The fallback uses an idempotent management-plane `PUT`. Confirm preview acceptance, regional availability, Azure Policy publisher allowances, and quota first.
+The fallback command uses an idempotent management-plane `PUT`. Confirm preview acceptance, regional availability, Azure Policy publisher allowances, and quota.
+
+To provision only the core Foundry resources without Model Router, Foundry IQ, or seeded portal assets:
+
+```powershell
+npm run azure:deploy -- -EnvironmentName demo -Location eastus2 -SkipPortalDemoAssets
+```
 
 ## Agent and provider modes
 
@@ -175,9 +180,8 @@ The canonical presentation is portal-first. Follow [`FOUNDRY-PORTAL-WALKTHROUGH.
 
 ## Manual and optional services
 
-These are not provisioned:
+These remain outside the default:
 
-- **Foundry IQ:** create and connect a knowledge source manually if available in your tenant. The local knowledge page remains an inspectable retrieval teaching aid.
 - **APIM semantic cache / Azure Managed Redis:** add manually if you want a production semantic cache. The UI compares cache strategies but does not claim these services exist.
 - **Private endpoints, VNet integration, customer-managed keys, and Azure Policy customization:** required in some enterprises but intentionally excluded from the demo default.
 

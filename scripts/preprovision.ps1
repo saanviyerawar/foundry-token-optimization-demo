@@ -11,7 +11,13 @@ function Set-DefaultAzdValue {
 Set-DefaultAzdValue "DEPLOY_WEB_APP" "false"
 Set-DefaultAzdValue "ALLOW_API_KEY_AUTH" "false"
 Set-DefaultAzdValue "CONNECT_APPLICATION_INSIGHTS" "true"
-Set-DefaultAzdValue "DEPLOY_MODEL_ROUTER" "false"
+Set-DefaultAzdValue "DEPLOY_MODEL_ROUTER" "true"
+Set-DefaultAzdValue "DEPLOY_FOUNDRY_IQ" "true"
+Set-DefaultAzdValue "DEPLOY_PORTAL_DEMO_ASSETS" "true"
+$azureLocation = & azd env get-value AZURE_LOCATION 2>$null
+if (-not [string]::IsNullOrWhiteSpace($azureLocation)) {
+    Set-DefaultAzdValue "SEARCH_LOCATION" $azureLocation.Trim()
+}
 Set-DefaultAzdValue "APP_SERVICE_SKU" "B1"
 Set-DefaultAzdValue "MODEL_ROUTER_VERSION" "2025-11-18"
 Set-DefaultAzdValue "MODEL_ROUTER_CAPACITY" "10"
