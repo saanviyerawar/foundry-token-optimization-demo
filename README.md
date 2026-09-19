@@ -33,6 +33,40 @@ The evaluation suite covers the 20 criteria shown in the demo: agent/tool behavi
 
 > **Cost warning:** deployment creates billable model capacity, Model Router, Azure AI Search Basic, Application Insights, and Log Analytics. It also makes real inference and evaluation calls.
 
+## Open the live demo
+
+[Open Microsoft Foundry](https://ai.azure.com) and select:
+
+- Account: `foundry-opt-australia-7tiitcffaqbty`
+- Project: `optimization-demo-australia`
+- Agent: `foundry-optimization-agent`
+
+The repository is public, but the live Azure resources are not anonymous or
+public. A viewer must sign in to the deployment's Microsoft Entra tenant and
+have the **Foundry User** role on the project. External viewers must first be
+invited to the tenant as guest users.
+
+An administrator can grant project access with:
+
+```powershell
+$projectId = az resource show `
+  --resource-group rg-foundry-opt-australia `
+  --resource-type Microsoft.CognitiveServices/accounts/projects `
+  --name foundry-opt-australia-7tiitcffaqbty/optimization-demo-australia `
+  --api-version 2025-06-01 `
+  --query id -o tsv
+
+az role assignment create `
+  --assignee <viewer-email-or-object-id> `
+  --role 53ca6127-db72-4b80-b1b0-d745d6d5456d `
+  --scope $projectId
+```
+
+The role ID is used because the same role can appear as **Foundry User** or its
+previous name, **Azure AI User**, while the rename rolls out. Sharing the link
+does not grant access or expose credentials. Viewers can also deploy an
+independent copy by following the steps below.
+
 ## Deploy
 
 Prerequisites:
