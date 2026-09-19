@@ -7,6 +7,7 @@ param allowApiKeyAuth bool
 param connectApplicationInsights bool
 param deployModelRouter bool
 param deployFoundryIQ bool
+param deployBrowserAutomation bool
 param modelRouterVersion string
 param modelRouterCapacity int
 param modelDeployments array
@@ -17,6 +18,7 @@ var foundryProjectName = take('optimization-demo-${environmentName}', 64)
 var logAnalyticsName = take('log-foundry-opt-${environmentName}-${suffix}', 63)
 var applicationInsightsName = take('appi-foundry-opt-${environmentName}-${suffix}', 255)
 var searchServiceName = take('srch-foundry-opt-${environmentName}-${suffix}', 60)
+var playwrightWorkspaceName = take('pww-${environmentName}-${suffix}', 24)
 var agentName = 'foundry-optimization-agent'
 var foundryProjectEndpoint = 'https://${foundryAccountName}.services.ai.azure.com/api/projects/${foundryProjectName}'
 var foundryAccountEndpoint = 'https://${foundryAccountName}.cognitiveservices.azure.com'
@@ -26,6 +28,7 @@ var knowledgeIndexName = 'token-optimization-index'
 var knowledgeSourceName = 'token-optimization-source'
 var knowledgeBaseName = 'token-optimization-knowledge'
 var knowledgeConnectionName = 'token-optimization-knowledge'
+var browserAutomationConnectionName = 'youtube-browser-automation'
 var foundryUserRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '53ca6127-db72-4b80-b1b0-d745d6d5456d')
 var cognitiveServicesUserRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'a97b65f3-24c7-4388-baec-2e87135dc908')
 var searchServiceContributorRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '7ca78c08-252a-4471-8644-bb5ff32d4ba0')
@@ -33,6 +36,7 @@ var searchIndexDataContributorRoleId = subscriptionResourceId('Microsoft.Authori
 var searchIndexDataReaderRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '1407120a-92aa-4202-b7e9-c0e197c71c8f')
 var logAnalyticsReaderRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '73c42c96-874c-492b-b04d-ab87d138a893')
 var privilegedMonitoringReaderRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', 'dbc9c667-e97f-4491-aee6-90b9cf960190')
+var playwrightWorkspaceContributorRoleId = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '78cf819f-0969-4ebe-8759-015c6efcd5bf')
 
 resource logAnalytics 'Microsoft.OperationalInsights/workspaces@2023-09-01' = {
   name: logAnalyticsName
@@ -112,6 +116,15 @@ resource searchService 'Microsoft.Search/searchServices@2025-05-01' = if (deploy
   }
 }
 
+resource playwrightWorkspace 'Microsoft.LoadTestService/playwrightWorkspaces@2025-09-01' = if (deployBrowserAutomation) {
+  name: playwrightWorkspaceName
+  location: location
+  tags: tags
+  properties: {
+    regionalAffinity: 'Enabled'
+  }
+}
+
 @batchSize(1)
 resource directModelDeployments 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = [for deployment in modelDeployments: if (deployment.enabled) {
   name: deployment.deploymentName
@@ -164,6 +177,16 @@ resource presenterFoundryUser 'Microsoft.Authorization/roleAssignments@2022-04-0
   properties: {
     principalId: principalId
     roleDefinitionId: foundryUserRoleId
+  }
+}
+
+resource projectPlaywrightContributor 'Microsoft.Authorization/roleAssignments@2022-04-01' = if (deployBrowserAutomation) {
+  scope: playwrightWorkspace!
+  name: guid(foundryProject.id, playwrightWorkspace!.id, playwrightWorkspaceContributorRoleId)
+  properties: {
+    principalId: foundryProject.identity.principalId
+    principalType: 'ServicePrincipal'
+    roleDefinitionId: playwrightWorkspaceContributorRoleId
   }
 }
 
@@ -235,6 +258,22 @@ resource projectAppInsightsConnection 'Microsoft.CognitiveServices/accounts/proj
   }
 }
 
+resource projectBrowserAutomationConnection 'Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview' = if (deployBrowserAutomation) {
+  name: browserAutomationConnectionName
+  parent: foundryProject
+  properties: {
+    category: 'PlaywrightWorkspace'
+    target: '${replace(playwrightWorkspace!.properties.dataplaneUri, 'https://', 'wss://')}/browsers'
+    authType: 'ProjectManagedIdentity'
+    audience: 'https://management.core.windows.net'
+    isSharedToAll: true
+    credentials: null
+    metadata: {
+      resourceId: playwrightWorkspace!.id
+    }
+  }
+}
+
 resource projectMonitoringRoles 'Microsoft.Authorization/roleAssignments@2022-04-01' = [for roleId in [
   logAnalyticsReaderRoleId
   privilegedMonitoringReaderRoleId
@@ -275,3 +314,5 @@ output knowledgeIndexName string = deployFoundryIQ ? knowledgeIndexName : ''
 output knowledgeSourceName string = deployFoundryIQ ? knowledgeSourceName : ''
 output knowledgeBaseName string = deployFoundryIQ ? knowledgeBaseName : ''
 output knowledgeConnectionName string = deployFoundryIQ ? knowledgeConnectionName : ''
+output browserAutomationConnectionId string = deployBrowserAutomation ? projectBrowserAutomationConnection.id : ''
+output playwrightWorkspaceName string = deployBrowserAutomation ? playwrightWorkspace!.name : ''

@@ -234,7 +234,7 @@ async function createKnowledgeBase(): Promise<void> {
       body: JSON.stringify({
         name: knowledgeBaseName,
         description: "Grounded knowledge for the Foundry token optimization demonstration.",
-        retrievalInstructions: "Retrieve only material relevant to token economics, evaluation, routing, context, tools, retrieval, caching, simplification, telemetry, tracing, or spend.",
+        retrievalInstructions: "Retrieve material relevant to token economics, evaluation, routing, context, tools, retrieval, caching, simplification, telemetry, tracing, spend, or a supplied YouTube video URL.",
         answerInstructions: "Answer concisely, preserve source attribution, and distinguish measured facts from recommendations.",
         outputMode: "extractiveData",
         knowledgeSources: [{ name: knowledgeSourceName }],

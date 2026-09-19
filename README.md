@@ -2,7 +2,8 @@
 
 A **Foundry-only** demonstration of evaluation-driven development, model routing, context optimization, Foundry IQ retrieval, caching economics, tracing, telemetry, spend, and business ROI.
 
-The workload is a YouTube learning agent. Transcript text is transformed into:
+The workload is a YouTube learning agent. Supply a YouTube URL or transcript
+text and the agent transforms accessible caption/transcript content into:
 
 - Key Points
 - A structured Study Guide
@@ -15,6 +16,7 @@ There is no web application, App Service, local mock UI, or companion portal in 
 - Foundry AIServices account and project
 - `gpt-5-mini`, `gpt-5-nano`, and `gpt-4.1-mini`
 - `model-router`
+- Playwright Workspace and a Foundry Browser Automation connection
 - `foundry-optimization-agent`
 - `youtube-baseline-agent`
 - `youtube-nano-agent`
@@ -134,4 +136,9 @@ docs/       Foundry-only deployment and presentation guides
 tests/      Deployment configuration tests
 ```
 
-APIM/Redis response caching, private networking, customer-managed keys, and a live YouTube transcript-fetching service are intentionally not provisioned.
+APIM/Redis response caching, private networking, customer-managed keys, and a
+dedicated YouTube transcript API are intentionally not provisioned. The agent
+uses Foundry Browser Automation to open YouTube's transcript panel, with
+Foundry Web Search as a fallback for publicly indexed captions. When sufficient
+transcript content is unavailable, it explicitly asks for pasted transcript
+text rather than inventing the video's contents.
