@@ -152,33 +152,3 @@ The complete presenter wording is in
 ### Foundry IQ knowledge
 
 ![Foundry IQ knowledge](docs/images/foundry-knowledge.png)
-
-## Debugging
-
-| Problem | What to do |
-|---|---|
-| Wrong tenant or project is missing | Switch directory to the deployment tenant and select the correct subscription. |
-| Agent returns 403 after deployment | Wait for RBAC propagation, then run `npm run azure:role` and `npm run azure:agent`. |
-| Model deployment is unavailable | Select a supported regional model/version and confirm quota. |
-| Model returns 429 | Wait before retrying; avoid repeated demo requests and use the prepared response. |
-| Search Basic has no capacity | Redeploy with `-SearchLocation <alternate-region>`. |
-| YouTube transcript is unavailable | Use the prepared `FFMm454fxNA` URL or paste transcript text. The agent must not invent content. |
-| No recent trace appears | Confirm the Application Insights connection, generate one agent request, wait several minutes, and refresh. |
-| Agent Insights scan fails | Insights is a preview feature. Use existing Traces and Monitoring for the demo; verify recent traces, the judge model, and monitoring permissions before retrying. |
-| Evaluation shows `Partial` | Use the completed mini, nano, and Model Router quality/safety runs as the headline comparison. |
-| Portal is slow | Use the already-open successful response, completed evaluations, existing trace, or screenshots above. |
-
-More deployment and permission troubleshooting is in
-[docs/AZURE-DEPLOYMENT.md](docs/AZURE-DEPLOYMENT.md).
-
-## Commands
-
-| Command | Purpose |
-|---|---|
-| `npm run azure:deploy` | Provision and seed the complete Foundry demo |
-| `npm run azure:agent` | Create or update the canonical agent |
-| `npm run azure:portal-assets` | Recreate agents, knowledge, evaluations, and traces |
-| `npm run azure:validate` | Validate deployment structure |
-| `npm run lint` | Type-check the automation |
-| `npm test` | Run configuration tests |
-| `npm run azure:down -- -Force` | Delete the selected environment |
