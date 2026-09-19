@@ -12,6 +12,7 @@ Set-DefaultAzdValue "ALLOW_API_KEY_AUTH" "false"
 Set-DefaultAzdValue "CONNECT_APPLICATION_INSIGHTS" "true"
 Set-DefaultAzdValue "DEPLOY_MODEL_ROUTER" "true"
 Set-DefaultAzdValue "DEPLOY_FOUNDRY_IQ" "true"
+Set-DefaultAzdValue "DEPLOY_BROWSER_AUTOMATION" "true"
 Set-DefaultAzdValue "DEPLOY_PORTAL_DEMO_ASSETS" "true"
 $azureLocation = & azd env get-value AZURE_LOCATION 2>$null
 if (-not [string]::IsNullOrWhiteSpace($azureLocation)) {

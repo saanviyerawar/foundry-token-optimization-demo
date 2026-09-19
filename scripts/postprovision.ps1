@@ -12,6 +12,11 @@ function Get-AzdValue {
 $env:FOUNDRY_PROJECT_ENDPOINT = Get-AzdValue "FOUNDRY_PROJECT_ENDPOINT"
 $env:FOUNDRY_AGENT_NAME = Get-AzdValue "FOUNDRY_AGENT_NAME"
 $env:FOUNDRY_PROJECT_NAME = Get-AzdValue "FOUNDRY_PROJECT_NAME"
+$env:MODEL_ROUTER_DEPLOYMENT_NAME = (& azd env get-value MODEL_ROUTER_DEPLOYMENT_NAME 2>$null).Trim()
+$env:BROWSER_AUTOMATION_CONNECTION_ID = (& azd env get-value BROWSER_AUTOMATION_CONNECTION_ID 2>$null).Trim()
+$env:SEARCH_SERVICE_ENDPOINT = (& azd env get-value SEARCH_SERVICE_ENDPOINT 2>$null).Trim()
+$env:FOUNDRY_IQ_KNOWLEDGE_BASE_NAME = (& azd env get-value FOUNDRY_IQ_KNOWLEDGE_BASE_NAME 2>$null).Trim()
+$env:FOUNDRY_IQ_CONNECTION_NAME = (& azd env get-value FOUNDRY_IQ_CONNECTION_NAME 2>$null).Trim()
 $env:MODEL_DEPLOYMENT_GPT_5_MINI = "gpt-5-mini"
 
 Write-Host "Waiting briefly for Foundry RBAC propagation..."

@@ -26,6 +26,9 @@
     "deployFoundryIQ": {
       "value": "${DEPLOY_FOUNDRY_IQ}"
     },
+    "deployBrowserAutomation": {
+      "value": "${DEPLOY_BROWSER_AUTOMATION}"
+    },
     "modelRouterVersion": {
       "value": "${MODEL_ROUTER_VERSION}"
     },

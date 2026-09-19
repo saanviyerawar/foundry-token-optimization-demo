@@ -26,6 +26,9 @@ param deployModelRouter bool = true
 @description('Deploy Azure AI Search for the Foundry IQ portal demo. This creates an additional billable resource.')
 param deployFoundryIQ bool = true
 
+@description('Deploy a Playwright workspace and Foundry Browser Automation connection for direct YouTube transcript access.')
+param deployBrowserAutomation bool = true
+
 @description('Model router version from the current Microsoft Foundry model-router documentation.')
 param modelRouterVersion string = '2025-11-18'
 
@@ -83,6 +86,7 @@ module resources './resources.bicep' = {
     connectApplicationInsights: connectApplicationInsights
     deployModelRouter: deployModelRouter
     deployFoundryIQ: deployFoundryIQ
+    deployBrowserAutomation: deployBrowserAutomation
     modelRouterVersion: modelRouterVersion
     modelRouterCapacity: modelRouterCapacity
     modelDeployments: modelDeployments
@@ -106,3 +110,5 @@ output FOUNDRY_IQ_INDEX_NAME string = resources.outputs.knowledgeIndexName
 output FOUNDRY_IQ_SOURCE_NAME string = resources.outputs.knowledgeSourceName
 output FOUNDRY_IQ_KNOWLEDGE_BASE_NAME string = resources.outputs.knowledgeBaseName
 output FOUNDRY_IQ_CONNECTION_NAME string = resources.outputs.knowledgeConnectionName
+output BROWSER_AUTOMATION_CONNECTION_ID string = resources.outputs.browserAutomationConnectionId
+output PLAYWRIGHT_WORKSPACE_NAME string = resources.outputs.playwrightWorkspaceName

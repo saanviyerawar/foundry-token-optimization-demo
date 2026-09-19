@@ -9,7 +9,7 @@ async function main() {
   if (!azureYaml.includes("provider: bicep") || azureYaml.includes("host: appservice")) {
     throw new Error("azure.yaml must declare Foundry Bicep infrastructure without an application service.");
   }
-  for (const parameter of ["environmentName", "location", "searchLocation", "principalId", "deployModelRouter", "deployFoundryIQ"]) {
+  for (const parameter of ["environmentName", "location", "searchLocation", "principalId", "deployModelRouter", "deployFoundryIQ", "deployBrowserAutomation"]) {
     if (!parameters.parameters?.[parameter]) throw new Error(`main.parameters.json is missing ${parameter}.`);
   }
   console.log("Azure configuration structure is valid.");

@@ -61,5 +61,12 @@
     "category": "operations",
     "content": "Use Foundry tracing and Application Insights to attribute latency, token usage, failures, retries, retrieval, and tool calls to individual operations. Use Foundry monitoring for operational trends and Azure Cost Management for authoritative billed spend. Connect technical signals to business value and evaluation outcomes.",
     "source": "Foundry Agent Optimization Demo"
+  },
+  {
+    "id": "youtube-ffmm454fxna",
+    "title": "Microsoft Build 2026 Satya Nadella Opening Keynote",
+    "category": "youtube-learning",
+    "content": "Video URL: https://www.youtube.com/watch?v=FFMm454fxNA. The keynote presents Microsoft's shift toward agentic AI systems in which orchestration, grounding, evaluation, security, and deployment infrastructure matter alongside model capability. Announcements and demonstrations include new Windows AI developer capabilities, a Microsoft and NVIDIA development stack, Project Solara, Web IQ for web-scale grounding, Work IQ and Agent 365 for enterprise context and governance, new Microsoft AI models, Majorana 2 quantum advances, and the GitHub Copilot app for parallel multi-agent development. The practical developer message is to build agent-first applications with traceable grounding, isolated parallel work, policy controls, continuous evaluation, and production observability. The GitHub Copilot app uses parallel agent sessions and separate worktrees or sandboxes so tasks can progress without interfering with one another. Web IQ and Work IQ provide current, attributable context, while Foundry and Agent 365 support governed deployment and operations. The keynote emphasizes that differentiated business value comes from the complete AI system and workflow, not model selection alone.",
+    "source": "https://www.youtube.com/watch?v=FFMm454fxNA"
   }
 ]
