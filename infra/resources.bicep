@@ -129,6 +129,9 @@ resource playwrightWorkspace 'Microsoft.LoadTestService/playwrightWorkspaces@202
 resource directModelDeployments 'Microsoft.CognitiveServices/accounts/deployments@2025-06-01' = [for deployment in modelDeployments: if (deployment.enabled) {
   name: deployment.deploymentName
   parent: foundryAccount
+  dependsOn: [
+    foundryProject
+  ]
   sku: {
     name: deployment.skuName
     capacity: deployment.capacity
@@ -225,6 +228,10 @@ resource presenterSearchRoles 'Microsoft.Authorization/roleAssignments@2022-04-0
 resource accountAppInsightsConnection 'Microsoft.CognitiveServices/accounts/connections@2025-06-01' = if (connectApplicationInsights) {
   name: '${foundryAccountName}-appinsights'
   parent: foundryAccount
+  dependsOn: [
+    directModelDeployments
+    modelRouterDeployment
+  ]
   properties: {
     category: 'AppInsights'
     target: applicationInsights.id
@@ -243,6 +250,9 @@ resource accountAppInsightsConnection 'Microsoft.CognitiveServices/accounts/conn
 resource projectAppInsightsConnection 'Microsoft.CognitiveServices/accounts/projects/connections@2025-06-01' = if (connectApplicationInsights) {
   name: applicationInsightsName
   parent: foundryProject
+  dependsOn: [
+    accountAppInsightsConnection
+  ]
   properties: {
     category: 'AppInsights'
     target: applicationInsights.id
@@ -261,6 +271,12 @@ resource projectAppInsightsConnection 'Microsoft.CognitiveServices/accounts/proj
 resource projectBrowserAutomationConnection 'Microsoft.CognitiveServices/accounts/projects/connections@2025-04-01-preview' = if (deployBrowserAutomation) {
   name: browserAutomationConnectionName
   parent: foundryProject
+  dependsOn: [
+    directModelDeployments
+    modelRouterDeployment
+    accountAppInsightsConnection
+    projectAppInsightsConnection
+  ]
   properties: {
     category: 'PlaywrightWorkspace'
     target: '${replace(playwrightWorkspace!.properties.dataplaneUri, 'https://', 'wss://')}/browsers'
