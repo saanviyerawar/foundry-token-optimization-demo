@@ -45,6 +45,18 @@ Viewers must sign in to the deployment's Microsoft Entra tenant and have the
 **Foundry User** role on the project. See
 [the deployment guide](docs/AZURE-DEPLOYMENT.md) for access details.
 
+## GitHub Copilot App canvas
+
+This repository includes the project-scoped **Foundry Canvas** extension at
+`.github/extensions/foundry-canvas/`. It provides an explicit context preview,
+live status for the existing Foundry agent, and rendered Key Points, Study
+Guide, Flashcards, and citations without adding a companion web application.
+
+After `npm ci` and `az login`, open this repository in GitHub Copilot App and
+ask: `Open Foundry Canvas with demoId youtube-learning-pack.` See
+[the canvas guide](docs/FOUNDRY-CANVAS.md) for exact authentication,
+configuration, launch, and demo steps.
+
 ## Set up your own deployment
 
 ### Prerequisites
