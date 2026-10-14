@@ -50,6 +50,7 @@ Viewers must sign in to the deployment's Microsoft Entra tenant and have the
 ### Prerequisites
 
 - Node.js 22 LTS
+- PowerShell 7+ (`pwsh`), used by the deployment scripts
 - Azure CLI
 - Azure Developer CLI (`azd`) 1.29+
 - Owner, or Contributor plus Role Based Access Control Administrator/User
