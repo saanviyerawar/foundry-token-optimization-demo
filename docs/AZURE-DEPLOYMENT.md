@@ -20,9 +20,10 @@ The deployment creates a Foundry-only YouTube learning-agent demonstration with 
 ## Prerequisites
 
 1. Node.js 22 LTS.
-2. Azure CLI and Azure Developer CLI 1.29+.
-3. Owner, or Contributor plus Role Based Access Control Administrator/User Access Administrator.
-4. Model availability and quota in the selected region.
+2. PowerShell 7+ (`pwsh`), used by the deployment scripts.
+3. Azure CLI and Azure Developer CLI 1.29+.
+4. Owner, or Contributor plus Role Based Access Control Administrator/User Access Administrator.
+5. Model availability and quota in the selected region.
 
 ```powershell
 az login
